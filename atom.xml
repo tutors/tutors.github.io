@@ -2,15 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://tutors.github.io/teach/atom.xml" rel="self"/>
-  <link href="http://tutors.github.io/teach/"/>
-  <updated>2013-08-03T21:17:40+04:30</updated>
-  <id>http://tutors.github.io/teach/</id>
+  <link href="http://tutors.github.io/atom.xml" rel="self"/>
+  <link href="http://tutors.github.io/"/>
+  <updated>2013-08-03T22:40:05+04:30</updated>
+  <id>http://tutors.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[First post]]></title>
+    <link href="http://tutors.github.io/blog/2013/08/03/first-post/"/>
+    <updated>2013-08-03T22:36:00+04:30</updated>
+    <id>http://tutors.github.io/blog/2013/08/03/first-post</id>
+    <content type="html"><![CDATA[<p>این پست آزمایشی است.</p>
+]]></content>
+  </entry>
   
 </feed>
