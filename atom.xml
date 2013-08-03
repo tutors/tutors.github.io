@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://tutors.github.io/atom.xml" rel="self"/>
   <link href="http://tutors.github.io/"/>
-  <updated>2013-08-03T22:40:05+04:30</updated>
+  <updated>2013-08-04T00:02:45+04:30</updated>
   <id>http://tutors.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[First post]]></title>
+    <title type="html"><![CDATA[اولین پست]]></title>
     <link href="http://tutors.github.io/blog/2013/08/03/first-post/"/>
     <updated>2013-08-03T22:36:00+04:30</updated>
     <id>http://tutors.github.io/blog/2013/08/03/first-post</id>
