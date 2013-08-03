@@ -3,9 +3,9 @@
 # ----------------------- #
 
 url: http://tutors.github.io
-title: My Octopress Blog
+title: آموزش روش های توسعه نرم افزار
 subtitle: A blogging framework for hackers.
-author: Your Name
+author: حسین زلفی
 simple_search: http://google.com/search
 description:
 
@@ -73,7 +73,7 @@ twitter_user:
 twitter_tweet_button: true
 
 # Google +1
-google_plus_one: false
+google_plus_one: true
 google_plus_one_size: medium
 
 # Google Plus Profile
@@ -94,7 +94,7 @@ disqus_short_name:
 disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-42924755-1
 
 # Facebook Like
 facebook_like: false
