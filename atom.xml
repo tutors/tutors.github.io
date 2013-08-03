@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[آموزش روش های توسعه نرم افزار]]></title>
   <link href="http://tutors.github.io/atom.xml" rel="self"/>
   <link href="http://tutors.github.io/"/>
-  <updated>2013-08-04T00:02:45+04:30</updated>
+  <updated>2013-08-04T02:16:14+04:30</updated>
   <id>http://tutors.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[حسین زلفی]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
