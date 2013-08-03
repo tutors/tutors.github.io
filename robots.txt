@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://tutors.github.io/teach/sitemap.xml 
