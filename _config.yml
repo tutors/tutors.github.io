@@ -22,6 +22,14 @@ subscribe_email:
 email:
 
 # ----------------------- #
+#    The Blog Speceific   #
+# ----------------------- #
+
+github:       https://github.com/tutors/tutors.github.io/
+site_name:    توتورز
+site_link_md: "[توتورز](http://tutors.github.io)"
+
+# ----------------------- #
 #    Jekyll & Plugins     #
 # ----------------------- #
 
