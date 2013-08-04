@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[آموزش روش های توسعه نرم افزار]]></title>
-  <link href="http://tutors.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: site | آموزش روش های توسعه نرم افزار]]></title>
+  <link href="http://tutors.github.io/blog/categories/site/atom.xml" rel="self"/>
   <link href="http://tutors.github.io/"/>
   <updated>2013-08-05T03:55:52+04:30</updated>
   <id>http://tutors.github.io/</id>
@@ -20,21 +20,12 @@
     <id>http://tutors.github.io/blog/2013/08/05/how-to-contirbute</id>
     <content type="html"><![CDATA[<h2>مشارکت در توسعه توتورز</h2>
 
-<p>سایت <a href="http://tutors.github.io">توتورز</a> به صورت گروهی و با همکاری ما و شما، تهیه و تدوین می شود. شما با هر دانش و سلیقه ای می توانید در توسعه ی آن نقش داشته باشید. این توسعه شامل اعمال تغییرات کوچک مانند گرفتن اشکالات ویرایشی و ارسال نظر برای ایجاد مطالب جدید یا حتی ارسال یک مطلب به توتورز می باشد.</p>
+<p>سایت [توتورز](http://tutors.github.io) به صورت گروهی و با همکاری ما و شما، تهیه و تدوین می شود. شما با هر دانش و سلیقه ای می توانید در توسعه ی آن نقش داشته باشید. این توسعه شامل اعمال تغییرات کوچک مانند گرفتن اشکالات ویرایشی و ارسال نظر برای ایجاد مطالب جدید یا حتی ارسال یک مطلب به توتورز می باشد.</p>
 
 <p>سایت توتورز به صورت کاملا اوپن سورس گسترش می یابد و شما می توانید به تمام سورس، مطالب و منابع آن دسترسی داشته باشید.
 ما توسعه دهندگان توتورز و شما همراهان توتورز خوشحالیم که می خواهیم گامی هر چند کوچک در راه آموزش، انتقال تجربیات و دانش برای هم و در کنار هم بر داریم.</p>
 
 <p>برای آشنایی با روش های مختلف توسعه توتورز می توانید به <a href="http://tutors.github.io/contribution">توسعه توتورز</a> مراجعه کنید.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[اولین پست]]></title>
-    <link href="http://tutors.github.io/blog/2013/08/03/first-post/"/>
-    <updated>2013-08-03T22:36:00+04:30</updated>
-    <id>http://tutors.github.io/blog/2013/08/03/first-post</id>
-    <content type="html"><![CDATA[<p>این پست آزمایشی است.</p>
 ]]></content>
   </entry>
   
