@@ -25,9 +25,10 @@ email:
 #    The Blog Speceific   #
 # ----------------------- #
 
-github:       https://github.com/tutors/tutors.github.io/
-site_name:    توتورز
-site_link_md: "[توتورز](http://tutors.github.io)"
+github:             https://github.com/tutors/tutors.github.io/
+site_name:          توتورز
+site_link_md:       "[توتورز](http://tutors.github.io)"
+gplus_community:    https://plus.google.com/communities/117621751961862702326
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -98,8 +99,8 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: tutorsir
+disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id: UA-42924755-1

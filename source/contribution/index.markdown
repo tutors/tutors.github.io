@@ -22,9 +22,13 @@ footer: true
 ## ارسال pull
 در صورتی که مطلب مفیدی در دست دارید و حس می کنید مطلب شما برای اشتراک گذاری در {{site.site_name}} مفید است، می توانید مطلب خود را آماده کنید و با ایجاد یک [درخواست][github-pull] در سایت [گیت هاب][github] برای ما ارسال نمائید.
 
+## استفاده از Google-plus
+شما می توانید به [گروه گوگل پلاس][github] به پیوندید و نظرات خود را در آن جا برای ما ارسال فرمائید.
+
 
 
 
 [github]: {{site.github}}
 [github-issues]: {{site.github}}/issues
 [github-pull]: {{site.github}}/pulls
+[gplus-community]: https://plus.google.com/communities/117621751961862702326
