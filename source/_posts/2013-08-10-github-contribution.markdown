@@ -3,7 +3,7 @@ layout: post
 title: "github contribution"
 date: 2013-08-10 13:56
 comments: true
-categories: 
+categories: github contribution
 author: فاطمه کربلایی
 ---
 
