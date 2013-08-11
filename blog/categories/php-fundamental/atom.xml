@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[آموزش روش های توسعه نرم افزار]]></title>
-  <link href="http://tutors.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: php-fundamental | آموزش روش های توسعه نرم افزار]]></title>
+  <link href="http://tutors.github.io/blog/categories/php-fundamental/atom.xml" rel="self"/>
   <link href="http://tutors.github.io/"/>
   <updated>2013-08-11T22:24:12+04:30</updated>
   <id>http://tutors.github.io/</id>
@@ -26,42 +26,52 @@
 بلکه تنها کدهای HTML دیده می شوند، بدین معنی که  Apache کدهای PHP را به HTML
 تبدیل می کند. کدهای PHP در قالبی به صورت زیر و در بین تگ body نوشته می شوند:</p>
 
-<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<p><div class="highlight"><pre><code class="html"><span class="ni">&amp;lt;</span>!DOCTYPE html&gt;
 <span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;body&gt;&lt;/p&gt;</span>
 
+<span class="nt">&lt;p&gt;&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;&lt;/p&gt;</span>
 
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div>
-
+<span class="nt">&lt;p&gt;</span>
+</code></pre></div></p>
 
 <h3>گرامر کلی زبان PHP</h3>
 
 <p>شما می توانید کد PHP را در هر ویرایشگری بنویسید. این کد با تگ  <strong> php?> </strong> آغاز
-و با تگ <strong> &lt;? </strong> خاتمه می یابد:</p>
+و با تگ <strong> &lt;? </strong> خاتمه می یابد:
+<div class="highlight"><pre><code class="php"><span class="x">&lt;/p&gt;</span>
 
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
-<span class="err">کدهای</span> <span class="nx">PHP</span> <span class="err">در</span> <span class="err">این</span> <span class="err">قسمت</span> <span class="err">نوشته</span> <span class="err">می</span> <span class="err">شوند</span><span class="c1">//</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+<span class="x">&lt;p&gt;&amp;lt;?php</span>
+<span class="x">کدهای PHP در این قسمت نوشته می شوند//</span>
+<span class="x">?&gt;&lt;/p&gt;</span>
 
+<span class="x">&lt;p&gt;</span>
+</code></pre></div></p>
 
 <p>همانطور که پیش از این گفته شد، پسوند پیش فرض فایل های <strong>php</strong> ، PHP<strong>.</strong> می باشد. به طور کلی هر فایل PHP شامل تگ های HTML و کدهای اسکریپتی PHP می باشد. در زیر مثال ساده ای از یک فایل PHP آورده شده است.</p>
 
 <p><strong>مثال: </strong>کد PHPای بنویسید که کلمه <em>!Hello World</em> را در سرور چاپ کند:</p>
 
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
-    <span class="k">echo</span> <span class="s2">&quot;Hello World!&quot;</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+<p><div class="highlight"><pre><code class="php"><span class="x">&lt;/p&gt;</span>
 
+<span class="x">&lt;p&gt;&amp;lt;?php&lt;/p&gt;</span>
 
-<p><strong> نتیجه اجرا: </strong></p>
+<span class="x">&lt;pre&gt;&lt;code&gt;echo &quot;Hello World!&quot;;</span>
+<span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
 
-<div class="highlight"><pre><code class="sh">Hello World!
-</code></pre></div>
+<span class="x">&lt;p&gt;?&gt;&lt;/p&gt;</span>
 
+<span class="x">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<p><strong> نتیجه اجرا: </strong>
+<div class="highlight"><pre><code class="sh">&lt;/p&gt;
+
+&lt;p&gt;Hello World!&lt;/p&gt;
+
+&lt;p&gt;
+</code></pre></div></p>
 
 <p>هر خط کد در PHP می بایست با یک علامت <strong> ; </strong> خاتمه یابد. علامت <strong> ; </strong> یک جداکننده می باشد
 و به منظور جدا سازی مجموعه ای از دستورالعمل ها از یکدیگر به کار می رود.</p>
@@ -79,26 +89,28 @@
 در ابتدای توضیح استفاده نمود و برای نوشتن توضیحات چند خطی می توان در اولین خط از دستورات
 از علامت <strong> */ </strong> و در پایان از علامت <strong> /* </strong> استفاده نمود.</p>
 
-<p><strong> مثال: </strong></p>
+<p><strong> مثال: </strong>
+<div class="highlight"><pre><code class="php"><span class="x">&lt;/p&gt;</span>
 
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
-<span class="c1">// توضیحات تک خطی در PHP</span>
+<span class="x">&lt;p&gt;&amp;lt;?php</span>
+<span class="x">// توضیحات تک خطی در PHP&lt;/p&gt;</span>
 
-<span class="cm">/*</span>
-<span class="cm">توضیحات بلوکی یا چند خطی در php</span>
-<span class="cm">*/</span>
-<span class="k">echo</span> <span class="s2">&quot;Hello World!&quot;</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+<span class="x">&lt;p&gt;/&lt;em&gt;</span>
+<span class="x">توضیحات بلوکی یا چند خطی در php</span>
+<span class="x">&lt;/em&gt;/</span>
+<span class="x">echo &amp;ldquo;Hello World!&amp;rdquo;;</span>
+<span class="x">?&gt;&lt;/p&gt;</span>
 
+<span class="x">&lt;p&gt;</span>
+</code></pre></div></p>
 
-<p><strong>نتیجه اجرا:</strong></p>
+<p><strong>نتیجه اجرا:</strong>
+<div class="highlight"><pre><code class="sh">&lt;/p&gt;
 
-<div class="highlight"><pre><code class="sh">Hello World!
-</code></pre></div>
+&lt;p&gt;Hello World!&lt;/p&gt;
 
-
-
+&lt;p&gt;
+</code></pre></div></p>
 ]]></content>
   </entry>
   
@@ -191,7 +203,7 @@
 خود را اجرا کنید، حتماً باید آنها را در این پوشه ذخیره کنید.
 پس از نصب WAMP، روی ناحیه تذکر از نوار وظیفه یک آیکن به شکل نیم دایره سفید ظاهر می شود.</p>
 
-<p><img src="http://tutors.github.io/images/php/fundamental/wamp_0.png" title="&#34;شکل ۱: سرویس دهنده WAMP&#34;" alt="&#34;شکل ۱: سرویس دهنده WAMP&#34;"></p>
+<p><img src="/images/php/fundamental/wamp_0.png" title="&ldquo;شکل ۱: سرویس دهنده WAMP&rdquo;" ></p>
 
 <p>شکل 1: سرویس دهنده WAMP</p>
 
@@ -217,31 +229,6 @@
 
 
 <p>در صورت عدم استفاده از WAMP یا سرویس دهنده های مشابه، باید PHP، Apache و MySQL را یکی پس از دیگری نصب وپیکر بندی نمایید.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[مشارکت در توسعه سایت]]></title>
-    <link href="http://tutors.github.io/blog/2013/08/05/how-to-contirbute/"/>
-    <updated>2013-08-05T03:33:00+04:30</updated>
-    <id>http://tutors.github.io/blog/2013/08/05/how-to-contirbute</id>
-    <content type="html"><![CDATA[<h2>مشارکت در توسعه توتورز</h2>
-
-<p>سایت <a href="http://tutors.github.io">توتورز</a> به صورت گروهی و با همکاری ما و شما، تهیه و تدوین می شود. شما با هر دانش و سلیقه ای می توانید در توسعه ی آن نقش داشته باشید. این توسعه شامل اعمال تغییرات کوچک مانند گرفتن اشکالات ویرایشی و ارسال نظر برای ایجاد مطالب جدید یا حتی ارسال یک مطلب به توتورز می باشد.</p>
-
-<p>سایت توتورز به صورت کاملا اوپن سورس گسترش می یابد و شما می توانید به تمام سورس، مطالب و منابع آن دسترسی داشته باشید.
-ما توسعه دهندگان توتورز و شما همراهان توتورز خوشحالیم که می خواهیم گامی هر چند کوچک در راه آموزش، انتقال تجربیات و دانش برای هم و در کنار هم بر داریم.</p>
-
-<p>برای آشنایی با روش های مختلف توسعه توتورز می توانید به <a href="http://tutors.github.io/contribution">توسعه توتورز</a> مراجعه کنید.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[اولین پست]]></title>
-    <link href="http://tutors.github.io/blog/2013/08/03/first-post/"/>
-    <updated>2013-08-03T22:36:00+04:30</updated>
-    <id>http://tutors.github.io/blog/2013/08/03/first-post</id>
-    <content type="html"><![CDATA[<p>این پست آزمایشی است.</p>
 ]]></content>
   </entry>
   
