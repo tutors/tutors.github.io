@@ -1,0 +1,261 @@
+---
+layout: post
+title: "عبارات If … Else "
+date: 2013-08-20 15:37
+comments: true
+categories: php-fundamental
+author: فاطمه کربلایی
+---
+##  عبارات If … Else در PHP ##
+دلیل استفاده از عبارات شرطی این است که بتوان بر حسب موقعیت های (شرایط) مختلف، اعمال متفاوتی انجام داد.
+## دستورات شرطی ##
+در بسیاری از مواقع زمانی که شما برنامه نویسی می کنید می خواهید اعمال متفاوتی را برای شرایط مختلف اعمال کنید. در این شرایط می توان از دستورات شرطی استفاده نمود.
+
+در زبان PHP دستورات شرطی زیر وجود دارند:
+
+**دستورات If:** دستورات را اجرا می کند، در صورتی که شرط خاصی اتفاق بیفتد.
+
+**دستورات if … else:** در صورتی که شرط مورد مقایسه صحیح باشد، دستورات مربوط را اجرا می کند و در غیر این صورت دستورات دیگری را اجرا می کند.
+
+**دستورات if …else if …else:** یکی از چندین بلوک کد را که دارای شرایط اجرا شدن هستند را اجرا می کند.
+
+**دستورات switch:** یکی از چندین بلوک کد را که دارای شرایط اجرا شدن هستند را اجرا می کند.
+
+## دستورات  if: ##
+عبارت if، دستور را اجرا می کند، در صورتی که شرط خاصی اتفاق بیفتد. گرامر عبارت if در زیر آمده است.
+
+{% highlight php linenos %}
+
+if (condition)
+  {
+  کدی که باید اجرا شود در صورتیکه شرط خاصی اتفاق بیفتد;
+  }
+
+
+{% endhighlight %}
+
+**مثال:**
+
+کدی که در زیر آمده است نشان می دهد که در صورتیکه ساعت (در این لحظه) کمتر از 20 باشد، عبارت "Have a good day!"  چاپ می شود.
+
+{% highlight php linenos %}
+
+<?php
+$t = date("H");
+if ($t < "20")
+  {
+  echo "Have a good day!";
+  }
+?>
+
+{% endhighlight %}
+
+**نتیجه اجرا:**
+
+{% highlight php linenos %}
+
+
+Have a good day!
+
+{% endhighlight %}
+
+## دستورات if...else: ##
+
+زمانی از دستورات if....else استفاده می شود که بخواهید در صورتیکه شرایط خاصی برقرار باشد کد خاصی را اجرا کنید، در غیر این صورت کد دیگری را اجرا کنید.
+
+**گرامر[^1]:**
+
+{% highlight php linenos %}
+
+if (condition)
+ {
+  ;دستوری که باید اجرا شود در صورتیکه شرط صحیح باشد
+ }
+else
+ {
+  ;دستوری که باید اجرا شود در صورتیکه شرط غلط باشد
+ }
+
+{% endhighlight %}
+
+**مثال:**
+
+{% highlight php linenos %}
+
+<?php
+$t = date("H");
+if ($t < "20")
+  {
+  echo "Have a good day!";
+  }
+else
+  {
+  echo "Have a good night!";
+  }
+?>
+
+
+{% endhighlight %}
+
+**نتیجه اجرا:**
+
+{% highlight php linenos %}
+
+زمان کنونی را محاسبه می کند .
+
+ در صورتیکه ساعت کنونی کمتر از 20 باشد عبارت Have a good day! را چاپ می کند 
+
+. در غیر این صورت Have a good night! را چاپ می کند.
+
+
+{% endhighlight %}
+
+
+## دستورات if...else if....else ##
+
+از این دستورات هنگامی اسنفاده می شود که بخواهید یکی از چندین بلاک کدی را که موجود است بر حسب شرایط مختلف اجرا کنید.
+
+**گرامر:**
+
+{% highlight php linenos %}
+
+if (condition)
+  {
+  ;دستوری که باید اجرا شود در صورتیکه شرط صحیح باشد
+  }
+else if (condition)
+  {
+ ; دستوری که باید اجرا شود در صورتیکه شرط صحیح باشد
+ }
+else
+  {
+ ;دستوری که باید اجرا شود در صورتیکه شرط غلط باشد
+ }
+
+{% endhighlight %}
+
+**مثال:**
+
+{% highlight php linenos %}
+
+<?php
+$t=date("H");
+if ($t<"10")
+  {
+  echo "Have a good morning!";
+  }
+else if ($t<"20")
+  {
+  echo "Have a good day!";
+  }
+else
+  {
+  echo "Have a good night!";
+  }
+?>
+
+
+{% endhighlight %}
+
+**نتیجه اجرا:**
+
+{% highlight php linenos %}
+
+زمان کنونی را محاسبه می کند .
+
+ در صورتیکه ساعت کنونی کمتر از 10 باشد 
+
+عبارت Have a good morning! را چاپ می کند.
+
+ در غیر این صورت در صورتیکه ساعت کنونی کمتر از 20 باشد
+
+ Have a good day! را چاپ می کند، 
+
+در غیر این صورت 
+
+Have a good night! را چاپ می کند.
+
+{% endhighlight %}
+
+## دستورات Switch در PHP ##
+
+دستورات Switch بدین منظور استفاده می شوند که بتوان بر اساس موقعیت های متفاوت اعمال متفاوتی انجام داد.
+
+**گرامر:**
+
+{% highlight php linenos %}
+
+switch (n)
+{
+case label1:
+  code to be executed if n = label1;
+  break;
+case label2:
+  code to be executed if n = label2;
+  break;
+default:
+  code to be executed if n is different from both label1 and label2;
+}
+
+{% endhighlight %}
+
+**نحوه اجرای کد بالا:**
+در ابتدا متغیر n ارزیابی می شود و سپس مقدار آن با مقدار هریک از case ها مقایسه می شود. 
+
+در صورتیکه تطابقی یافت شود، بلاک کد مربوط به آن case اجرا می شود.
+در صورتیکه مقدار هیچ یک از case ها با مقدار n  برابر نباشد، کد مربوط به قسمت default اجرا می شود. 
+
+
+توجه کنید که در پایان هر case باید دستور break قرار داده شود به منظور اینکه از اجرای کدهای سایر case ها جلوگیری شود.
+
+**مثال:**
+
+{% highlight php linenos %}
+
+<?php
+$favcolor = "red";
+switch ($favcolor)
+{
+case "red":
+  echo "Your favorite color is red!";
+  break;
+case "blue":
+  echo "Your favorite color is blue!";
+  break;
+case "green":
+  echo "Your favorite color is green!";
+  break;
+default:
+  echo "Your favorite color is neither red, blue, or green!";
+}
+?>
+
+?>
+
+{% endhighlight %}
+
+**نتیجه اجرا:**
+
+{% highlight php linenos %}
+
+Your favorite color is red!
+
+{% endhighlight %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[^1]:Syntax
