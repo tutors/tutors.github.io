@@ -14,7 +14,6 @@ group :development do
   gem 'rb-fsevent', '~> 0.9'
   gem 'stringex', '~> 1.4.0'
   gem 'liquid', '~> 2.3.0'
-  gem 'rtlit', '~> 0.0.5'
 end
 
 gem 'sinatra', '~> 1.4.2'
