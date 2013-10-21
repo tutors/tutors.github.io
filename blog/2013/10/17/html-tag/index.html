@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title> انواع تگ های html - آموزش روش های توسعه نرم افزار</title>
+  <title> html چیست؟  - آموزش روش های توسعه نرم افزار</title>
   <meta name="author" content="حسین زلفی">
 
   
-  <meta name="description" content="تگ head چیست؟ در &lt;head&gt; توضیحاتی راجع به html ایجاد شده وجود دارد. اطلاعاتی که واقعا در مرورگر نشان داده نمی شوند. مثلاً اینکه عنوان یک صفحه &hellip;">
+  <meta name="description" content="html استانداردی که در صفحه وب وجود دارد html می باشد. در ابتدا هدف از ایجاد html این بود
+که بتوان مقاله ها را به شکل خاصی در آورد. مثلاً مشخص کرد &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://tutors.github.io/blog/2013/10/17/html-tags">
+  <link rel="canonical" href="http://tutors.github.io/blog/2013/10/17/html-tag">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="آموزش روش های توسعه نرم افزار" type="application/atom+xml">
@@ -81,7 +82,7 @@
   
   <header>
     
-      <h1 class="entry-title">انواع تگ های Html</h1>
+      <h1 class="entry-title">Html چیست؟</h1>
     
     
       <p class="meta">
@@ -97,7 +98,7 @@
   
 
 
-<time datetime="2013-10-17T15:28:00+03:30" pubdate data-updated="true">Oct 17<span>th</span>, 2013</time>
+<time datetime="2013-10-17T14:15:00+03:30" pubdate data-updated="true">Oct 17<span>th</span>, 2013</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -106,74 +107,77 @@
   </header>
 
 
-<div class="entry-content"><h2>تگ head چیست؟</h2>
+<div class="entry-content"><h2>html</h2>
 
-<p>در &lt;head&gt; توضیحاتی راجع به html ایجاد شده وجود دارد. اطلاعاتی که واقعا در مرورگر
- نشان داده نمی شوند. مثلاً اینکه عنوان یک صفحه چیست.</p>
+<p>استانداردی که در صفحه وب وجود دارد html می باشد. در ابتدا هدف از ایجاد html این بود
+که بتوان مقاله ها را به شکل خاصی در آورد. مثلاً مشخص کرد کدام قسمت عنوان مقاله، کدام قسمت footer
+مقاله و کدام قسمت بدنه مقاله را مشخص می کند. در روند تکامل html ساختار اولیه تغییرات بسیاری پیدا کرد و
+امکانات زیادی به آن اضافه شد و بر اساس آن می توان سایتهای با طرحهای بسیار پیچیده ایجاد نمود. برای مثال
+ می توان به روش زیر sourcehtml تمامی سایتها را ملاحظه نمود:</p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;title&gt;</span>This is a test<span class="nt">&lt;/title&gt;</span>
-</code></pre></div>
+<ul>
+<li>کلیک راست بر روی صفحه مرورگر</li>
+<li>انتخاب گزینه view page source</li>
+</ul>
 
 
-<p>آنچه در &lt;head&gt; تعریف می شود متا محتواست مثلاً عنوان. برای مثال یک موتور جستجوگر مانند
- گوگل می خواهد بداند که موضوع سایت ما چیست. در این صورت به سراغ head
-می رود. در واقع ما باید یک سری اطلاعات راجع به سایت را در قسمت &lt;head&gt; قرار دهیم.</p>
+<h2>تگ ها و خاصیت ها</h2>
 
-<h2>تگ body چیست؟</h2>
+<p>HTML یک زبان نشانه گذاری ابرمتن است . این زبان از یک سری تگ درست شده است که این تگ ها با استفاده از
+علامات زیر باز و بسته می شوند.</p>
 
-<p>آنچه در &lt;body&gt; قرار دارد در واقع محتوای اصلی سایت ما را مشخص می کند.
-هرچه در این قسمت نوشته شود عیناً و بدون هیچ style خاصی در صفحه وب نمایش داده می شود.</p>
+<p>&lt;>علامت باز شدن تگ</p>
 
-<h2>ساختار مقاله ای گونه HTML</h2>
-
-<p>در این راستا سه تگ &lt;h1&gt;، &lt;h2&gt; و &lt;p&gt; وجود دارند.
- تگ &lt;h1&gt; نشان دهنده عنوان شماره 1، تگ &lt;h2&gt; نشان دهنده عنوان شماره 2
-و تگ &lt;p&gt; نشان دهنده پاراگراف می باشد. برای ایجاد یک سایت مقاله گونه از این
-تگ ها استفاده
-می شود.</p>
-
-<h2>تگ ها و خاصیت آنها</h2>
-
-<p>در HTML می توان به برخی از تگ ها خاصیت داد.</p>
+<p></> علامت بسته شدن تگ</p>
 
 <p><strong>مثال:</strong></p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;h1</span> <span class="na">style =</span><span class="err"> </span><span class="s">&quot;color:red;&quot;</span><span class="nt">&gt;</span>HTML<span class="nt">&lt;/h1&gt;</span>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;html&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
 
-<h3>تگ های معنایی</h3>
-
-<p>تگ معنایی یعنی تگی که مفهوم متنی که داخل آن تگ است را نشان می دهد.
-مثلاً تگ h1 نشان می دهد که این تگ header است. تگ p نشان می دهد که این تگ پاراگراف است.</p>
-
-<h3>تگ های فرمت</h3>
-
-<p>این تگ ها معنای خاصی را نشان نمی دهند.</p>
+<p>مثلاً تگ P نشان دهنده پاراگراف می باشد.</p>
 
 <p><strong>مثال:</strong></p>
 
-<p>&lt;em&gt;: نشان دهنده اینکه متنی مهم است</p>
-
-<p>&lt;small&gt;: متن را کوچکتر از سایز اصلی متن نشان می دهد</p>
-
-<p>&lt;b&gt;: متن را bold می کند.</p>
-
-<p>&lt;i&gt;: متن را italic می کند.</p>
-
-<p>&lt;sub&gt;: متن را زیر نویس می کند. مثلاً<sub>2</sub>xرا به صورت زیر نشان می دهیم.</p>
-
-<div class="highlight"><pre><code class="html">x<span class="nt">&lt;sub&gt;</span>2<span class="nt">&lt;/sub&gt;</span>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Evrery thing about html<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
 
 
-<p>&lt;sup&gt;:   متن را به صورت توان دار نشان می دهد.مثلاً<sup>2</sup>xرا به صورت زیر نشان می دهیم</p>
+<p>به طور کلی HTML یک ساختار درختی دارد. برای مثال در بالا ابتدا html شروع شده، تگ  p شروع شده
+ و پایان می یابد سپس تگ html خاتمه می یابد.
+به طور کلی شما می توانید یک فایل HTML را با هر editor ای ایجاد کنید و سپس آن را با استفاده
+از مرورگر ببینید. ولی بهتر است از یک سرور محلی استفاده نمایید که در این جا از وب سرور wamp
+ استفاده شده است.</p>
 
-<div class="highlight"><pre><code class="html">x<span class="nt">&lt;sup&gt;</span>2<span class="nt">&lt;/sup&gt;</span>
-</code></pre></div>
+<h2>طریقه استفاده از wamp سرور</h2>
 
+<p>پس از دانلود این برنامه آن را روی سیستم خود نصب نمایید. در یکی از مراحل نصب
+این برنامه، کادری ظاهر می شود که در آن می بایست مسیر ریشه برای قرار دادن
+فایل های مربوط به سایت تعیین شود، به طور پیش فرض این مسیر در شاخه نصب wamp
+و در پوشه www انتخاب شده است.</p>
 
+<p>نکته: این مسیر را به خاطر بسپارید، زیرا از این پس برای اینکه بتوانید برنامه های
+خود را اجرا کنید، حتماً باید آنها را در این پوشه ذخیره کنید.
+پس از نصب wamp، روی ناحیه تذکر از نوار وظیفه یک آیکن به شکل نیم دایره سفید ظاهر می شود.</p>
 
+<p><img src="/images/html/fundamental/wamp_0.png" title="&#34;شکل ۱: سرویس دهنده wamp&#34;" alt="&#34;شکل ۱: سرویس دهنده wamp&#34;"></p>
+
+<p>شکل 1: سرویس دهنده wamp</p>
+
+<p>ظاهر شدن این آیکن با رنگ های قرمز با زرد به این معناست که سرویس ها به طور کامل
+در حال اجرا نیستند و یا اینکه به درستی عمل نمی کنند. در این صورت برای اجرای
+مجدد سرویس ها روی آیکن نیم دایره کلیک کنید. به شکل 1 توجه کنید،علامت مثلث کنار
+سرویس های Apache و MySQL به معنای این است که سرویس در حال اجراست. در صورتیکه
+این علامت به مربع تبدیل شود به معنای توقف سرویس هاست. در این صورت برای اجرای
+سرویس روی گزینه  Start/Resume Serviceکلیک کنید.</p>
+
+<p>پس از نصب برنامه wamp می توانید عملیات برنامه نویسی در html را آغاز کنید و
+پس از ذخیره هر برنامه، اجرای آن را توسط مرورگر مشاهده کنید.</p>
 </div>
 
 
@@ -196,7 +200,7 @@
   
 
 
-<time datetime="2013-10-17T15:28:00+03:30" pubdate data-updated="true">Oct 17<span>th</span>, 2013</time>
+<time datetime="2013-10-17T14:15:00+03:30" pubdate data-updated="true">Oct 17<span>th</span>, 2013</time>
       
 
 <span class="categories">
@@ -210,7 +214,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://tutors.github.io/blog/2013/10/17/html-tags/" data-via="" data-counturl="http://tutors.github.io/blog/2013/10/17/html-tags/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://tutors.github.io/blog/2013/10/17/html-tag/" data-via="" data-counturl="http://tutors.github.io/blog/2013/10/17/html-tag/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -221,8 +225,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/10/17/html-editor/" title="Previous Post:  استفاده از editor برای ویرایش کد ">&laquo;  استفاده از editor برای ویرایش کد </a>
+        <a class="basic-alignment left" href="/blog/2013/08/21/php-post-variable/" title="Previous Post: متغیر POST_ $ در PHP">&laquo; متغیر POST_ $ در PHP</a>
       
+      
+        <a class="basic-alignment right" href="/blog/2013/10/17/html-editor/" title="Next Post:  استفاده از editor برای ویرایش کد "> استفاده از editor برای ویرایش کد  &raquo;</a>
       
     </p>
   </footer>
@@ -296,8 +302,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://tutors.github.io/blog/2013/10/17/html-tags/';
-        var disqus_url = 'http://tutors.github.io/blog/2013/10/17/html-tags/';
+        var disqus_identifier = 'http://tutors.github.io/blog/2013/10/17/html-tag/';
+        var disqus_url = 'http://tutors.github.io/blog/2013/10/17/html-tag/';
         var disqus_script = 'embed.js';
       
     (function () {
