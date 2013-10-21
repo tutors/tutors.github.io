@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>عبارات If … Else  - آموزش روش های توسعه نرم افزار</title>
+  <meta name="author" content="حسین زلفی">
+
+  
+  <meta name="description" content="عبارات If … Else در PHP دلیل استفاده از عبارات شرطی این است که بتوان بر حسب موقعیت های (شرایط) مختلف، اعمال متفاوتی انجام داد. دستورات شرطی در بسیاری &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tutors.github.io/blog/2013/08/20/php-if">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="آموزش روش های توسعه نرم افزار" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-42924755-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">آموزش روش های توسعه نرم افزار</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tutors.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">خانه</a></li>
+  <li><a href="/blog/archives">آرشیو</a></li>
+  <li><a href="/contribution">توسعه توتورز</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">عبارات if … Else</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T15:37:00+04:30" pubdate data-updated="true">Aug 20<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>عبارات If … Else در PHP</h2>
+
+<p>دلیل استفاده از عبارات شرطی این است که بتوان بر حسب موقعیت های (شرایط) مختلف، اعمال متفاوتی انجام داد.</p>
+
+<h2>دستورات شرطی</h2>
+
+<p>در بسیاری از مواقع زمانی که شما برنامه نویسی می کنید می خواهید اعمال متفاوتی را برای شرایط مختلف اعمال کنید. در این شرایط می توان از دستورات شرطی استفاده نمود.</p>
+
+<p>در زبان PHP دستورات شرطی زیر وجود دارند:</p>
+
+<p><strong>دستورات If:</strong> دستورات را اجرا می کند، در صورتی که شرط خاصی اتفاق بیفتد.</p>
+
+<p><strong>دستورات if … else:</strong> در صورتی که شرط مورد مقایسه صحیح باشد، دستورات مربوط را اجرا می کند و در غیر این صورت دستورات دیگری را اجرا می کند.</p>
+
+<p><strong>دستورات if …else if …else:</strong> یکی از چندین بلوک کد را که دارای شرایط اجرا شدن هستند را اجرا می کند.</p>
+
+<p><strong>دستورات switch:</strong> یکی از چندین بلوک کد را که دارای شرایط اجرا شدن هستند را اجرا می کند.</p>
+
+<h2>دستورات  if:</h2>
+
+<p>عبارت if، دستور را اجرا می کند، در صورتی که شرط خاصی اتفاق بیفتد. گرامر عبارت if در زیر آمده است.</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">if (condition)</span>
+<span class="x">  {</span>
+<span class="x">  کدی که باید اجرا شود در صورتیکه شرط خاصی اتفاق بیفتد;</span>
+<span class="x">  }</span>
+</code></pre></div>
+
+
+<p><strong>مثال:</strong></p>
+
+<p>کدی که در زیر آمده است نشان می دهد که در صورتیکه ساعت (در این لحظه) کمتر از 20 باشد، عبارت &ldquo;Have a good day!&rdquo;  چاپ می شود.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$t</span> <span class="o">=</span> <span class="nb">date</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$t</span> <span class="o">&lt;</span> <span class="s2">&quot;20&quot;</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;Have a good day!&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">Have a good day!</span>
+</code></pre></div>
+
+
+<h2>دستورات if&hellip;else:</h2>
+
+<p>زمانی از دستورات if&hellip;.else استفاده می شود که بخواهید در صورتیکه شرایط خاصی برقرار باشد کد خاصی را اجرا کنید، در غیر این صورت کد دیگری را اجرا کنید.</p>
+
+<p><strong>گرامر<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">if (condition)</span>
+<span class="x"> {</span>
+<span class="x">  ;دستوری که باید اجرا شود در صورتیکه شرط صحیح باشد</span>
+<span class="x"> }</span>
+<span class="x">else</span>
+<span class="x"> {</span>
+<span class="x">  ;دستوری که باید اجرا شود در صورتیکه شرط غلط باشد</span>
+<span class="x"> }</span>
+</code></pre></div>
+
+
+<p><strong>مثال:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$t</span> <span class="o">=</span> <span class="nb">date</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$t</span> <span class="o">&lt;</span> <span class="s2">&quot;20&quot;</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;Have a good day!&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="k">else</span>
+  <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;Have a good night!&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">زمان کنونی را محاسبه می کند .</span>
+
+<span class="x"> در صورتیکه ساعت کنونی کمتر از 20 باشد عبارت Have a good day! را چاپ می کند </span>
+
+<span class="x">. در غیر این صورت Have a good night! را چاپ می کند.</span>
+</code></pre></div>
+
+
+<h2>دستورات if&hellip;else if&hellip;.else</h2>
+
+<p>از این دستورات هنگامی اسنفاده می شود که بخواهید یکی از چندین بلاک کدی را که موجود است بر حسب شرایط مختلف اجرا کنید.</p>
+
+<p><strong>گرامر:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">if (condition)</span>
+<span class="x">  {</span>
+<span class="x">  ;دستوری که باید اجرا شود در صورتیکه شرط صحیح باشد</span>
+<span class="x">  }</span>
+<span class="x">else if (condition)</span>
+<span class="x">  {</span>
+<span class="x"> ; دستوری که باید اجرا شود در صورتیکه شرط صحیح باشد</span>
+<span class="x"> }</span>
+<span class="x">else</span>
+<span class="x">  {</span>
+<span class="x"> ;دستوری که باید اجرا شود در صورتیکه شرط غلط باشد</span>
+<span class="x"> }</span>
+</code></pre></div>
+
+
+<p><strong>مثال:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$t</span><span class="o">=</span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$t</span><span class="o">&lt;</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;Have a good morning!&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$t</span><span class="o">&lt;</span><span class="s2">&quot;20&quot;</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;Have a good day!&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="k">else</span>
+  <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;Have a good night!&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">زمان کنونی را محاسبه می کند .</span>
+
+<span class="x"> در صورتیکه ساعت کنونی کمتر از 10 باشد </span>
+
+<span class="x">عبارت Have a good morning! را چاپ می کند.</span>
+
+<span class="x"> در غیر این صورت در صورتیکه ساعت کنونی کمتر از 20 باشد</span>
+
+<span class="x"> Have a good day! را چاپ می کند، </span>
+
+<span class="x">در غیر این صورت </span>
+
+<span class="x">Have a good night! را چاپ می کند.</span>
+</code></pre></div>
+
+
+<h2>دستورات Switch در PHP</h2>
+
+<p>دستورات Switch بدین منظور استفاده می شوند که بتوان بر اساس موقعیت های متفاوت اعمال متفاوتی انجام داد.</p>
+
+<p><strong>گرامر:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">switch (n)</span>
+<span class="x">{</span>
+<span class="x">case label1:</span>
+<span class="x">  code to be executed if n = label1;</span>
+<span class="x">  break;</span>
+<span class="x">case label2:</span>
+<span class="x">  code to be executed if n = label2;</span>
+<span class="x">  break;</span>
+<span class="x">default:</span>
+<span class="x">  code to be executed if n is different from both label1 and label2;</span>
+<span class="x">}</span>
+</code></pre></div>
+
+
+<p><strong>نحوه اجرای کد بالا:</strong>
+در ابتدا متغیر n ارزیابی می شود و سپس مقدار آن با مقدار هریک از case ها مقایسه می شود.</p>
+
+<p>در صورتیکه تطابقی یافت شود، بلاک کد مربوط به آن case اجرا می شود.
+در صورتیکه مقدار هیچ یک از case ها با مقدار n  برابر نباشد، کد مربوط به قسمت default اجرا می شود.</p>
+
+<p>توجه کنید که در پایان هر case باید دستور break قرار داده شود به منظور اینکه از اجرای کدهای سایر case ها جلوگیری شود.</p>
+
+<p><strong>مثال:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$favcolor</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+<span class="k">switch</span> <span class="p">(</span><span class="nv">$favcolor</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">case</span> <span class="s2">&quot;red&quot;</span><span class="o">:</span>
+  <span class="k">echo</span> <span class="s2">&quot;Your favorite color is red!&quot;</span><span class="p">;</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="s2">&quot;blue&quot;</span><span class="o">:</span>
+  <span class="k">echo</span> <span class="s2">&quot;Your favorite color is blue!&quot;</span><span class="p">;</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="s2">&quot;green&quot;</span><span class="o">:</span>
+  <span class="k">echo</span> <span class="s2">&quot;Your favorite color is green!&quot;</span><span class="p">;</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="k">default</span><span class="o">:</span>
+  <span class="k">echo</span> <span class="s2">&quot;Your favorite color is neither red, blue, or green!&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">?&gt;</span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">Your favorite color is red!</span>
+</code></pre></div>
+
+
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Syntax<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">فاطمه کربلایی</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T15:37:00+04:30" pubdate data-updated="true">Aug 20<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php-fundamental/'>php-fundamental</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://tutors.github.io/blog/2013/08/20/php-if/" data-via="" data-counturl="http://tutors.github.io/blog/2013/08/20/php-if/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/20/php-oprators/" title="Previous Post: عملگرهای PHP">&laquo; عملگرهای PHP</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/08/20/php-arrays/" title="Next Post: آرایه ها در PHP ">آرایه ها در PHP  &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/17/html-tags/">انواع تگ های Html</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-post-variable/">متغیر POST_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-get-variable/">متغیر GET_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-form-and-user-input/">فرم ها و ورودی کاربر</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-variables-scope/">حوزه متغيرهاي PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-functions/">توابع PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-sorting-arrays/">مرتب سازی آرایه ها در PHP</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - حسین زلفی -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tutorsir';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tutors.github.io/blog/2013/08/20/php-if/';
+        var disqus_url = 'http://tutors.github.io/blog/2013/08/20/php-if/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

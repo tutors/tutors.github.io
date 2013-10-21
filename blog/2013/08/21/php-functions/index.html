@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>توابع PHP - آموزش روش های توسعه نرم افزار</title>
+  <meta name="author" content="حسین زلفی">
+
+  
+  <meta name="description" content="قدرت واقعی php برگرفته از توابع1 آن است. در Php بیش از 7000 تابع از پیش ساخته شده وجود دارد. در این فصل نحوه ایجاد تابع در php توضیح داده خواهد شد. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tutors.github.io/blog/2013/08/21/php-functions">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="آموزش روش های توسعه نرم افزار" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-42924755-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">آموزش روش های توسعه نرم افزار</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tutors.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">خانه</a></li>
+  <li><a href="/blog/archives">آرشیو</a></li>
+  <li><a href="/contribution">توسعه توتورز</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">توابع PHP</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-21T14:36:00+04:30" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>قدرت واقعی php برگرفته از توابع<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>  آن است.</p>
+
+<p> در Php بیش از 7000 تابع از پیش ساخته شده  وجود دارد.</p>
+
+<p> در این فصل نحوه ایجاد تابع در php توضیح داده خواهد شد.</p>
+
+<p>برای جلوگیری از اینکه هنگامی که یک صفحه لود می شود، اسکریپت اجرا شود، می توانید اسکریپت را در یک تابع قرار دهید.</p>
+
+<p> یک تابع زمانی اجرا می شود که آنرا فراخوانی کنید و شما می توانید تابع را در هرجایی از کد فراخوانی کنید.</p>
+
+<h2>ایجاد تابع در PHP</h2>
+
+<p>یک تابع زمانی اجرا می شود که آن را فراخوانی کنید.</p>
+
+<p><strong>گرامر:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">functionName</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="err">؛کدی</span> <span class="err">که</span> <span class="err">باید</span> <span class="err">اجرا</span> <span class="err">شود</span>
+<span class="p">{</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<h3>اصولی راجع به توابع PHP:</h3>
+
+<ul>
+<li><p>به تابع نامی بدهید که نشاندهنده عملکرد تابع باشد.</p></li>
+<li><p>نام تابع می تواند با یک حرف یا _ شروع شود (نه عدد).</p></li>
+</ul>
+
+
+<p><strong>مثال:</strong></p>
+
+<p> تابع ساده ای که هنگامی که فراخوانی می شود، اسم را می نویسد.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">writeName</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="k">echo</span> <span class="s2">&quot;Kai Jim Refsnes&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">echo</span> <span class="s2">&quot;My name is &quot;</span><span class="p">;</span>
+<span class="nx">writeName</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong> نتیجه اجرا: </strong></p>
+
+<div class="highlight"><pre><code class="sh">My name is Kai Jim Refsnes
+</code></pre></div>
+
+
+<h2>اضافه کردن پارامتر به تابع</h2>
+
+<p>برای اینکه یک تابع بتواند کارهای بیشتری انجام دهد، می توان به آن پارامتر اضافه نمود.</p>
+
+<p> یک پارمتر مانند یک متغیر  است. پارامترها بعد از نام تابع و در داخل پرانتز نوشته می شوند.</p>
+
+<p><strong>مثال1:</strong></p>
+
+<p> مثال زیر نام های متفاوت و با نام خانوادگی یکسان را چاپ می کند.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">writeName</span><span class="p">(</span><span class="nv">$fname</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">echo</span> <span class="nv">$fname</span> <span class="o">.</span> <span class="s2">&quot; Refsnes.&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">echo</span> <span class="s2">&quot;My name is &quot;</span><span class="p">;</span>
+<span class="nx">writeName</span><span class="p">(</span><span class="s2">&quot;Kai Jim&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;My sister&#39;s name is &quot;</span><span class="p">;</span>
+<span class="nx">writeName</span><span class="p">(</span><span class="s2">&quot;Hege&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;My brother&#39;s name is &quot;</span><span class="p">;</span>
+<span class="nx">writeName</span><span class="p">(</span><span class="s2">&quot;Stale&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong> نتیجه اجرا: </strong></p>
+
+<div class="highlight"><pre><code class="sh">My name is Kai Jim Refsnes.
+My sister<span class="s1">&#39;s name is Hege Refsnes.</span>
+<span class="s1">My brother&#39;</span>s name is Stale Refsnes.
+</code></pre></div>
+
+
+<p><strong>مثال2:</strong></p>
+
+<p> تابعی با دو پارامتر</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">writeName</span><span class="p">(</span><span class="nv">$fname</span><span class="p">,</span><span class="nv">$punctuation</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">echo</span> <span class="nv">$fname</span> <span class="o">.</span> <span class="s2">&quot; Refsnes&quot;</span> <span class="o">.</span> <span class="nv">$punctuation</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">echo</span> <span class="s2">&quot;My name is &quot;</span><span class="p">;</span>
+<span class="nx">writeName</span><span class="p">(</span><span class="s2">&quot;Kai Jim&quot;</span><span class="p">,</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;My sister&#39;s name is &quot;</span><span class="p">;</span>
+<span class="nx">writeName</span><span class="p">(</span><span class="s2">&quot;Hege&quot;</span><span class="p">,</span><span class="s2">&quot;!&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;My brother&#39;s name is &quot;</span><span class="p">;</span>
+<span class="nx">writeName</span><span class="p">(</span><span class="s2">&quot;Ståle&quot;</span><span class="p">,</span><span class="s2">&quot;?&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong> نتیجه اجرا: </strong></p>
+
+<div class="highlight"><pre><code class="sh">My name is Kai Jim Refsnes.
+My sister<span class="s1">&#39;s name is Hege Refsnes!</span>
+<span class="s1">My brother&#39;</span>s name is Ståle Refsnes?
+</code></pre></div>
+
+
+<h2>مقادیر بازگشتی در تابع</h2>
+
+<p>برای اینکه یک تابع بتواند مقدار بازگشتی داشته باشد، می توان از عبارت return استفاده نمود.</p>
+
+<p><strong>مثال:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">add</span><span class="p">(</span><span class="nv">$x</span><span class="p">,</span><span class="nv">$y</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="nv">$total</span> <span class="o">=</span> <span class="nv">$x</span><span class="o">+</span><span class="nv">$y</span><span class="p">;</span>
+<span class="k">return</span> <span class="nv">$total</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">echo</span> <span class="s2">&quot;1 + 16 = &quot;</span> <span class="o">.</span> <span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong> نتیجه اجرا: </strong></p>
+
+<div class="highlight"><pre><code class="sh">1 + <span class="nv">16</span> <span class="o">=</span> 17
+</code></pre></div>
+
+
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>functions<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">فاطمه کربلایی</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-21T14:36:00+04:30" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php-fundamental/'>php-fundamental</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://tutors.github.io/blog/2013/08/21/php-functions/" data-via="" data-counturl="http://tutors.github.io/blog/2013/08/21/php-functions/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/21/php-sorting-arrays/" title="Previous Post: مرتب سازی آرایه ها در PHP">&laquo; مرتب سازی آرایه ها در PHP</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/08/21/php-variables-scope/" title="Next Post: حوزه متغيرهاي PHP">حوزه متغيرهاي PHP &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/17/html-tags/">انواع تگ های Html</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-post-variable/">متغیر POST_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-get-variable/">متغیر GET_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-form-and-user-input/">فرم ها و ورودی کاربر</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-variables-scope/">حوزه متغيرهاي PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-functions/">توابع PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-sorting-arrays/">مرتب سازی آرایه ها در PHP</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - حسین زلفی -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tutorsir';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tutors.github.io/blog/2013/08/21/php-functions/';
+        var disqus_url = 'http://tutors.github.io/blog/2013/08/21/php-functions/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

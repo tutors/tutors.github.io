@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>آرایه ها در PHP  - آموزش روش های توسعه نرم افزار</title>
+  <meta name="author" content="حسین زلفی">
+
+  
+  <meta name="description" content="آرایه ها در PHP آرایه چیست؟ آرایه یک متغیر ویژه است که در یک لحظه می تواند چندین مقدار را در خود نگهداری کند. در صورتیکه شما چندین مقدار یا لیستی از &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tutors.github.io/blog/2013/08/20/php-arrays">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="آموزش روش های توسعه نرم افزار" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-42924755-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">آموزش روش های توسعه نرم افزار</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tutors.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">خانه</a></li>
+  <li><a href="/blog/archives">آرشیو</a></li>
+  <li><a href="/contribution">توسعه توتورز</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">آرایه ها در PHP</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T16:20:00+04:30" pubdate data-updated="true">Aug 20<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>آرایه ها در PHP</h2>
+
+<p><strong>آرایه چیست؟</strong> آرایه یک متغیر ویژه است که در یک لحظه می تواند چندین مقدار را در خود نگهداری کند.</p>
+
+<p>در صورتیکه شما چندین مقدار یا لیستی از عناصر  (لیستی از نام ماشین ها برای مثال) داشته باشید، ذخیره کردن cars در یک متغیر مشابه زیر است:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$cars1</span><span class="o">=</span><span class="s2">&quot;Volvo&quot;</span><span class="p">;</span>
+<span class="nv">$cars2</span><span class="o">=</span><span class="s2">&quot;BMW&quot;</span><span class="p">;</span>
+<span class="nv">$cars3</span><span class="o">=</span><span class="s2">&quot;Toyota&quot;</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p>اما اگر شما بخواهید در لیست این عناصر دنبال عنصر خاصی بگردید چه اتفاقی می افتد؟ و اگر به جای سه ماشین 300 ماشین داشته باشید چه اتفاقی می افتد؟ راه حل این است که یک آرایه ایجاد کنید.</p>
+
+<p>یک آرایه می تواند چندین مقدار را تحت یک نام در خود نگه دارد و شما می توانید توسط اندیس عناصر به آنها دسترسی پیدا کنید.</p>
+
+<h2>ایجاد آرایه در PHP</h2>
+
+<p>در PHP از تابع ()array برای ایجاد آرایه استفاده می شود. در این زبان سه نوع آرایه وجود دارد:</p>
+
+<p><strong>آرایه های اندیس دار<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></strong> : آرایه ای با اندیس های عددی</p>
+
+<p><strong>آرایه های انجمنی <sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></strong>: آرایه هایی با کلیدهای نامدار</p>
+
+<p><strong>آرایه های چند بعدی<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></strong> : آرایه های شامل یک یا چند آرایه</p>
+
+<h2>آرایه های اندیس در PHP</h2>
+
+<p>دو راه برای ایجاد آرایه اندیس وجود دارد:</p>
+
+<ul>
+<li>اندیس به طور اتوماتیک مقداردهی می شود (دقت شود که اندیس همواره از صفر شروع می شود):</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$cars</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&quot;Volvo&quot;</span><span class="p">,</span><span class="s2">&quot;BMW&quot;</span><span class="p">,</span><span class="s2">&quot;Toyota&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<ul>
+<li>اندیس به صورت دستی مقداردهی می شود:</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$cars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;Volvo&quot;</span><span class="p">;</span>
+<span class="nv">$cars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;BMW&quot;</span><span class="p">;</span>
+<span class="nv">$cars</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;Toyota&quot;</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>مثال</strong> زیر یک آرایه اندیس دار به نام cars$، ایجاد کرده، عناصر آن را مقداردهی کرده و مقادیر آرایه را چاپ می کند.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$cars</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&quot;Volvo&quot;</span><span class="p">,</span><span class="s2">&quot;BMW&quot;</span><span class="p">,</span><span class="s2">&quot;Toyota&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;I like &quot;</span> <span class="o">.</span> <span class="nv">$cars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;, &quot;</span> <span class="o">.</span> <span class="nv">$cars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot; and &quot;</span> <span class="o">.</span> <span class="nv">$cars</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;.&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">I like Volvo, BMW and Toyota.</span>
+</code></pre></div>
+
+
+<h2>بدست آوردن طول آرایه- تابع ()count</h2>
+
+<p>تابع ()count برای به دست آوردن طول آرایه (تعداد عناصر آرایه) به کار می رود:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$cars</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&quot;Volvo&quot;</span><span class="p">,</span><span class="s2">&quot;BMW&quot;</span><span class="p">,</span><span class="s2">&quot;Toyota&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$cars</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">3</span>
+</code></pre></div>
+
+
+<h2>آرایه های انجمنی در PHP</h2>
+
+<p>آرایه انجمنی آرایه ای است از کلیدهای نامدار که می توان به آنها مقدار نسبت داد، استفاده می کند. برای ایجاد این نوع آرایه دو روش وجود دارد:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$age</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&quot;Peter&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;35&quot;</span><span class="p">,</span><span class="s2">&quot;Ben&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;37&quot;</span><span class="p">,</span><span class="s2">&quot;Joe&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;43&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p>یا</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$age</span><span class="p">[</span><span class="s1">&#39;Peter&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;35&quot;</span><span class="p">;</span>
+<span class="nv">$age</span><span class="p">[</span><span class="s1">&#39;Ben&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;37&quot;</span><span class="p">;</span>
+<span class="nv">$age</span><span class="p">[</span><span class="s1">&#39;Joe&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;43&quot;</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>مثال</strong>: می توان از کلیدهای نامدار در یک اسکریپت استفاده نمود:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$age</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&quot;Peter&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;35&quot;</span><span class="p">,</span><span class="s2">&quot;Ben&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;37&quot;</span><span class="p">,</span><span class="s2">&quot;Joe&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;43&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;Peter is &quot;</span> <span class="o">.</span> <span class="nv">$age</span><span class="p">[</span><span class="s1">&#39;Peter&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot; years old.&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">Peter is 35 years old.</span>
+</code></pre></div>
+
+
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Indexed arrays<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+<li id="fn:2">
+<p>Associative arrays<a href="#fnref:2" rev="footnote">&#8617;</a></p></li>
+<li id="fn:3">
+<p>Multidimensional arrays<a href="#fnref:3" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">فاطمه کربلایی</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T16:20:00+04:30" pubdate data-updated="true">Aug 20<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php-fundamental/'>php-fundamental</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://tutors.github.io/blog/2013/08/20/php-arrays/" data-via="" data-counturl="http://tutors.github.io/blog/2013/08/20/php-arrays/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/20/php-if/" title="Previous Post: عبارات If … Else ">&laquo; عبارات If … Else </a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/08/20/php-multidimensional-arrays/" title="Next Post: آرایه های چند بعدی در PHP">آرایه های چند بعدی در PHP &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/17/html-tags/">انواع تگ های Html</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-post-variable/">متغیر POST_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-get-variable/">متغیر GET_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-form-and-user-input/">فرم ها و ورودی کاربر</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-variables-scope/">حوزه متغيرهاي PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-functions/">توابع PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-sorting-arrays/">مرتب سازی آرایه ها در PHP</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - حسین زلفی -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tutorsir';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tutors.github.io/blog/2013/08/20/php-arrays/';
+        var disqus_url = 'http://tutors.github.io/blog/2013/08/20/php-arrays/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

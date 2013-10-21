@@ -1,0 +1,1335 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>آموزش روش های توسعه نرم افزار</title>
+  <meta name="author" content="حسین زلفی">
+
+  
+  <meta name="description" content="آرایه ها در PHP آرایه چیست؟ آرایه یک متغیر ویژه است که در یک لحظه می تواند چندین مقدار را در خود نگهداری کند. در صورتیکه شما چندین مقدار یا لیستی از &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tutors.github.io/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="آموزش روش های توسعه نرم افزار" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-42924755-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">آموزش روش های توسعه نرم افزار</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tutors.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">خانه</a></li>
+  <li><a href="/blog/archives">آرشیو</a></li>
+  <li><a href="/contribution">توسعه توتورز</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/20/php-arrays/">آرایه ها در PHP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T16:20:00+04:30" pubdate data-updated="true">Aug 20<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/08/20/php-arrays/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>آرایه ها در PHP</h2>
+
+<p><strong>آرایه چیست؟</strong> آرایه یک متغیر ویژه است که در یک لحظه می تواند چندین مقدار را در خود نگهداری کند.</p>
+
+<p>در صورتیکه شما چندین مقدار یا لیستی از عناصر  (لیستی از نام ماشین ها برای مثال) داشته باشید، ذخیره کردن cars در یک متغیر مشابه زیر است:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$cars1</span><span class="o">=</span><span class="s2">&quot;Volvo&quot;</span><span class="p">;</span>
+<span class="nv">$cars2</span><span class="o">=</span><span class="s2">&quot;BMW&quot;</span><span class="p">;</span>
+<span class="nv">$cars3</span><span class="o">=</span><span class="s2">&quot;Toyota&quot;</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p>اما اگر شما بخواهید در لیست این عناصر دنبال عنصر خاصی بگردید چه اتفاقی می افتد؟ و اگر به جای سه ماشین 300 ماشین داشته باشید چه اتفاقی می افتد؟ راه حل این است که یک آرایه ایجاد کنید.</p>
+
+<p>یک آرایه می تواند چندین مقدار را تحت یک نام در خود نگه دارد و شما می توانید توسط اندیس عناصر به آنها دسترسی پیدا کنید.</p>
+
+<h2>ایجاد آرایه در PHP</h2>
+
+<p>در PHP از تابع ()array برای ایجاد آرایه استفاده می شود. در این زبان سه نوع آرایه وجود دارد:</p>
+
+<p><strong>آرایه های اندیس دار<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></strong> : آرایه ای با اندیس های عددی</p>
+
+<p><strong>آرایه های انجمنی <sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></strong>: آرایه هایی با کلیدهای نامدار</p>
+
+<p><strong>آرایه های چند بعدی<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></strong> : آرایه های شامل یک یا چند آرایه</p>
+
+<h2>آرایه های اندیس در PHP</h2>
+
+<p>دو راه برای ایجاد آرایه اندیس وجود دارد:</p>
+
+<ul>
+<li>اندیس به طور اتوماتیک مقداردهی می شود (دقت شود که اندیس همواره از صفر شروع می شود):</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$cars</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&quot;Volvo&quot;</span><span class="p">,</span><span class="s2">&quot;BMW&quot;</span><span class="p">,</span><span class="s2">&quot;Toyota&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<ul>
+<li>اندیس به صورت دستی مقداردهی می شود:</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$cars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;Volvo&quot;</span><span class="p">;</span>
+<span class="nv">$cars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;BMW&quot;</span><span class="p">;</span>
+<span class="nv">$cars</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;Toyota&quot;</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>مثال</strong> زیر یک آرایه اندیس دار به نام cars$، ایجاد کرده، عناصر آن را مقداردهی کرده و مقادیر آرایه را چاپ می کند.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$cars</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&quot;Volvo&quot;</span><span class="p">,</span><span class="s2">&quot;BMW&quot;</span><span class="p">,</span><span class="s2">&quot;Toyota&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;I like &quot;</span> <span class="o">.</span> <span class="nv">$cars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;, &quot;</span> <span class="o">.</span> <span class="nv">$cars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot; and &quot;</span> <span class="o">.</span> <span class="nv">$cars</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;.&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">I like Volvo, BMW and Toyota.</span>
+</code></pre></div>
+
+
+<h2>بدست آوردن طول آرایه- تابع ()count</h2>
+
+<p>تابع ()count برای به دست آوردن طول آرایه (تعداد عناصر آرایه) به کار می رود:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$cars</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&quot;Volvo&quot;</span><span class="p">,</span><span class="s2">&quot;BMW&quot;</span><span class="p">,</span><span class="s2">&quot;Toyota&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$cars</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">3</span>
+</code></pre></div>
+
+
+<h2>آرایه های انجمنی در PHP</h2>
+
+<p>آرایه انجمنی آرایه ای است از کلیدهای نامدار که می توان به آنها مقدار نسبت داد، استفاده می کند. برای ایجاد این نوع آرایه دو روش وجود دارد:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$age</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&quot;Peter&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;35&quot;</span><span class="p">,</span><span class="s2">&quot;Ben&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;37&quot;</span><span class="p">,</span><span class="s2">&quot;Joe&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;43&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p>یا</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$age</span><span class="p">[</span><span class="s1">&#39;Peter&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;35&quot;</span><span class="p">;</span>
+<span class="nv">$age</span><span class="p">[</span><span class="s1">&#39;Ben&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;37&quot;</span><span class="p">;</span>
+<span class="nv">$age</span><span class="p">[</span><span class="s1">&#39;Joe&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;43&quot;</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>مثال</strong>: می توان از کلیدهای نامدار در یک اسکریپت استفاده نمود:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$age</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">&quot;Peter&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;35&quot;</span><span class="p">,</span><span class="s2">&quot;Ben&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;37&quot;</span><span class="p">,</span><span class="s2">&quot;Joe&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;43&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;Peter is &quot;</span> <span class="o">.</span> <span class="nv">$age</span><span class="p">[</span><span class="s1">&#39;Peter&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot; years old.&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">Peter is 35 years old.</span>
+</code></pre></div>
+
+
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Indexed arrays<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+<li id="fn:2">
+<p>Associative arrays<a href="#fnref:2" rev="footnote">&#8617;</a></p></li>
+<li id="fn:3">
+<p>Multidimensional arrays<a href="#fnref:3" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/20/php-if/">عبارات if … Else</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T15:37:00+04:30" pubdate data-updated="true">Aug 20<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/08/20/php-if/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>عبارات If … Else در PHP</h2>
+
+<p>دلیل استفاده از عبارات شرطی این است که بتوان بر حسب موقعیت های (شرایط) مختلف، اعمال متفاوتی انجام داد.</p>
+
+<h2>دستورات شرطی</h2>
+
+<p>در بسیاری از مواقع زمانی که شما برنامه نویسی می کنید می خواهید اعمال متفاوتی را برای شرایط مختلف اعمال کنید. در این شرایط می توان از دستورات شرطی استفاده نمود.</p>
+
+<p>در زبان PHP دستورات شرطی زیر وجود دارند:</p>
+
+<p><strong>دستورات If:</strong> دستورات را اجرا می کند، در صورتی که شرط خاصی اتفاق بیفتد.</p>
+
+<p><strong>دستورات if … else:</strong> در صورتی که شرط مورد مقایسه صحیح باشد، دستورات مربوط را اجرا می کند و در غیر این صورت دستورات دیگری را اجرا می کند.</p>
+
+<p><strong>دستورات if …else if …else:</strong> یکی از چندین بلوک کد را که دارای شرایط اجرا شدن هستند را اجرا می کند.</p>
+
+<p><strong>دستورات switch:</strong> یکی از چندین بلوک کد را که دارای شرایط اجرا شدن هستند را اجرا می کند.</p>
+
+<h2>دستورات  if:</h2>
+
+<p>عبارت if، دستور را اجرا می کند، در صورتی که شرط خاصی اتفاق بیفتد. گرامر عبارت if در زیر آمده است.</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">if (condition)</span>
+<span class="x">  {</span>
+<span class="x">  کدی که باید اجرا شود در صورتیکه شرط خاصی اتفاق بیفتد;</span>
+<span class="x">  }</span>
+</code></pre></div>
+
+
+<p><strong>مثال:</strong></p>
+
+<p>کدی که در زیر آمده است نشان می دهد که در صورتیکه ساعت (در این لحظه) کمتر از 20 باشد، عبارت &ldquo;Have a good day!&rdquo;  چاپ می شود.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$t</span> <span class="o">=</span> <span class="nb">date</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$t</span> <span class="o">&lt;</span> <span class="s2">&quot;20&quot;</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;Have a good day!&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">Have a good day!</span>
+</code></pre></div>
+
+
+<h2>دستورات if&hellip;else:</h2>
+
+<p>زمانی از دستورات if&hellip;.else استفاده می شود که بخواهید در صورتیکه شرایط خاصی برقرار باشد کد خاصی را اجرا کنید، در غیر این صورت کد دیگری را اجرا کنید.</p>
+
+<p><strong>گرامر<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">if (condition)</span>
+<span class="x"> {</span>
+<span class="x">  ;دستوری که باید اجرا شود در صورتیکه شرط صحیح باشد</span>
+<span class="x"> }</span>
+<span class="x">else</span>
+<span class="x"> {</span>
+<span class="x">  ;دستوری که باید اجرا شود در صورتیکه شرط غلط باشد</span>
+<span class="x"> }</span>
+</code></pre></div>
+
+
+<p><strong>مثال:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$t</span> <span class="o">=</span> <span class="nb">date</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$t</span> <span class="o">&lt;</span> <span class="s2">&quot;20&quot;</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;Have a good day!&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="k">else</span>
+  <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;Have a good night!&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">زمان کنونی را محاسبه می کند .</span>
+
+<span class="x"> در صورتیکه ساعت کنونی کمتر از 20 باشد عبارت Have a good day! را چاپ می کند </span>
+
+<span class="x">. در غیر این صورت Have a good night! را چاپ می کند.</span>
+</code></pre></div>
+
+
+<h2>دستورات if&hellip;else if&hellip;.else</h2>
+
+<p>از این دستورات هنگامی اسنفاده می شود که بخواهید یکی از چندین بلاک کدی را که موجود است بر حسب شرایط مختلف اجرا کنید.</p>
+
+<p><strong>گرامر:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">if (condition)</span>
+<span class="x">  {</span>
+<span class="x">  ;دستوری که باید اجرا شود در صورتیکه شرط صحیح باشد</span>
+<span class="x">  }</span>
+<span class="x">else if (condition)</span>
+<span class="x">  {</span>
+<span class="x"> ; دستوری که باید اجرا شود در صورتیکه شرط صحیح باشد</span>
+<span class="x"> }</span>
+<span class="x">else</span>
+<span class="x">  {</span>
+<span class="x"> ;دستوری که باید اجرا شود در صورتیکه شرط غلط باشد</span>
+<span class="x"> }</span>
+</code></pre></div>
+
+
+<p><strong>مثال:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$t</span><span class="o">=</span><span class="nb">date</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$t</span><span class="o">&lt;</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;Have a good morning!&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$t</span><span class="o">&lt;</span><span class="s2">&quot;20&quot;</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;Have a good day!&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="k">else</span>
+  <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;Have a good night!&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">زمان کنونی را محاسبه می کند .</span>
+
+<span class="x"> در صورتیکه ساعت کنونی کمتر از 10 باشد </span>
+
+<span class="x">عبارت Have a good morning! را چاپ می کند.</span>
+
+<span class="x"> در غیر این صورت در صورتیکه ساعت کنونی کمتر از 20 باشد</span>
+
+<span class="x"> Have a good day! را چاپ می کند، </span>
+
+<span class="x">در غیر این صورت </span>
+
+<span class="x">Have a good night! را چاپ می کند.</span>
+</code></pre></div>
+
+
+<h2>دستورات Switch در PHP</h2>
+
+<p>دستورات Switch بدین منظور استفاده می شوند که بتوان بر اساس موقعیت های متفاوت اعمال متفاوتی انجام داد.</p>
+
+<p><strong>گرامر:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">switch (n)</span>
+<span class="x">{</span>
+<span class="x">case label1:</span>
+<span class="x">  code to be executed if n = label1;</span>
+<span class="x">  break;</span>
+<span class="x">case label2:</span>
+<span class="x">  code to be executed if n = label2;</span>
+<span class="x">  break;</span>
+<span class="x">default:</span>
+<span class="x">  code to be executed if n is different from both label1 and label2;</span>
+<span class="x">}</span>
+</code></pre></div>
+
+
+<p><strong>نحوه اجرای کد بالا:</strong>
+در ابتدا متغیر n ارزیابی می شود و سپس مقدار آن با مقدار هریک از case ها مقایسه می شود.</p>
+
+<p>در صورتیکه تطابقی یافت شود، بلاک کد مربوط به آن case اجرا می شود.
+در صورتیکه مقدار هیچ یک از case ها با مقدار n  برابر نباشد، کد مربوط به قسمت default اجرا می شود.</p>
+
+<p>توجه کنید که در پایان هر case باید دستور break قرار داده شود به منظور اینکه از اجرای کدهای سایر case ها جلوگیری شود.</p>
+
+<p><strong>مثال:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$favcolor</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+<span class="k">switch</span> <span class="p">(</span><span class="nv">$favcolor</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">case</span> <span class="s2">&quot;red&quot;</span><span class="o">:</span>
+  <span class="k">echo</span> <span class="s2">&quot;Your favorite color is red!&quot;</span><span class="p">;</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="s2">&quot;blue&quot;</span><span class="o">:</span>
+  <span class="k">echo</span> <span class="s2">&quot;Your favorite color is blue!&quot;</span><span class="p">;</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="s2">&quot;green&quot;</span><span class="o">:</span>
+  <span class="k">echo</span> <span class="s2">&quot;Your favorite color is green!&quot;</span><span class="p">;</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="k">default</span><span class="o">:</span>
+  <span class="k">echo</span> <span class="s2">&quot;Your favorite color is neither red, blue, or green!&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">?&gt;</span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">Your favorite color is red!</span>
+</code></pre></div>
+
+
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Syntax<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/20/php-oprators/">عملگرهای PHP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T12:34:00+04:30" pubdate data-updated="true">Aug 20<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/08/20/php-oprators/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>عملگرهای PHP</h2>
+
+<p>در PHP عملگر مساوی = برای انتساب مقادیر به متغیرها به کار می رود. عملگر محاسباتی + نیز برای جمع مقادیر مورد استفاده قرارمی گیرد.</p>
+
+<h2>انواع عملگرهای محاسباتی PHP</h2>
+
+<p>انواع عملگرهای PHP عبارتند از:</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">شرح    :    عملگر</span>
+<span class="x"> </span>
+<span class="x">x + y    : جمع x و y</span>
+
+<span class="x">x - y    : تفریق x و y</span>
+
+<span class="x">x * y    : ضرب x و y</span>
+
+<span class="x">x / y    : تقسیم x بر y</span>
+
+<span class="x">x % y    : باقیمانده تقسیم x بر y</span>
+
+<span class="x">-x       : قرینه x </span>
+
+<span class="x">a . b    : الحاق دو رشته</span>
+</code></pre></div>
+
+
+<h2>عملگرهای انتساب PHP</h2>
+
+<p>عملگر اصلی انتساب در PHP، “=” می باشد. به این معنی که عملوند سمت چپ برابر مقدار عملوند سمت راست را می گیرد.</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">عبارت معادل :   انتساب</span>
+
+<span class="x">x = y    : x = y</span>
+
+<span class="x">x += y   : x = x + y</span>
+
+<span class="x">x -= y   : x = x - y</span>
+
+<span class="x">x *= y   : x = x * y</span>
+
+<span class="x">x /= y   : x = x / y</span>
+
+<span class="x">x %= y   : x = x % y</span>
+
+<span class="x">a .= b   : a = a . b</span>
+</code></pre></div>
+
+
+<h2>عملگرهای افزایش/کاهش</h2>
+
+<div class="highlight"><pre><code class="php"><span class="x">شرح    :   عملگر</span>
+
+<span class="x">++ x    : ابتدا مقدار x را یک واحد افزایش می دهد و سپس مقدار آن را بر می گرداند. </span>
+
+
+<span class="x">x ++    : ابتدا مقدار x را بر می گرداند و سپس به مقدار آن یک واحد اضافه می کند.</span>
+
+<span class="x">-- x    : ابتدا مقدار x را یک واحد کاهش می دهد و سپس مقدار آن را بر می گرداند.</span>
+
+<span class="x">x --    : ابتدا مقدار x را بر می گرداند و سپس از مقدار آن یک واحد کم می کند.</span>
+</code></pre></div>
+
+
+<h2>عملگرهای مقایسه ای</h2>
+
+<p>عملگرهای مقایسه ای به  شما اجازه می دهند که دو مقدار را با یکدیگر مقایسه کنید:</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">شرح    :      عملگر</span>
+
+<span class="x">x == y     : نتیجه در صورتی true  می باشد که  x با y مساوی باشد </span>
+
+<span class="x">x === y    : نتیجه  در صورتی true می باشد که x با y مساوی باشد و x و y هر دو از یک نوع باشند.</span>
+
+<span class="x">x != y     : نتیجه در صورتی true است که x با y مساوی نباشد.</span>
+
+
+<span class="x">x &lt;&gt; y     : نتیجه در صورتی  true است که x با y مساوی نباشد.</span>
+
+<span class="x">x !== y    : نتیجه در صورتی true می باشد که x با y مساوی نباشد یا x و y هر دو از یک نوع نباشند.</span>
+
+<span class="x">x &gt; y      : نتیجه در صورتی true می باشد که x بزرگتر ازy باشد.</span>
+
+
+<span class="x">x &lt; y      : نتیجه در صورتی true می باشد که x کوچکتر ازy باشد.</span>
+
+<span class="x">x &gt;= y     : نتیجه در صورتی true می باشد که x بزرگتر یا مساویy باشد.</span>
+
+<span class="x">x &lt;= y     : نتیجه در صورتی true می باشد که x کوچکتر یا مساویy باشد.</span>
+</code></pre></div>
+
+
+<p><strong>مثال</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">نتیجه    :     عبارت</span>
+
+<span class="x">5==8       : false</span>
+
+<span class="x">5===&quot;5&quot;    : false </span>
+
+<span class="x">5!=8       : true</span>
+
+<span class="x">5&lt;&gt;8       : true</span>
+
+
+<span class="x">5!==&quot;5&quot;    : true</span>
+
+<span class="x">5&gt;8        : false</span>
+
+<span class="x">5&lt;8        : true</span>
+
+<span class="x">5&gt;=8       : false</span>
+
+<span class="x">5&lt;=8       : true</span>
+</code></pre></div>
+
+
+<h2>عملگرهای منطقی</h2>
+
+<div class="highlight"><pre><code class="php"><span class="x">شرح    :      عملگر</span>
+
+<span class="x">x and y    : در صورتی true است که هم xو هم true  ،y باشد</span>
+
+<span class="x">x or y     : در صورتی true است که  x یا y (یک از این دو  یا هر دو)true باشد.</span>
+
+
+<span class="x">x xor y    : در صورتی true است که یا x یا y (و نه هر دو)true باشد.</span>
+
+<span class="x">x &amp;&amp; y     : در صورتی true است که هم xو هم  true ،y باشد</span>
+
+<span class="x">x || y     : در صورتی true است که  x یا y (یک از این دو  یا هر دو)true باشد.</span>
+
+<span class="x">! x        : در صورتی true است که  true ،x نباشد.</span>
+</code></pre></div>
+
+
+<p><strong>مثال</strong></p>
+
+<p> اگر x = 6 و y = 3 باشد حاصل هریک از عبارت های زیر را بدست آورید.</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">نتیجه    :                       عبارت</span>
+
+<span class="x">(x &lt; 10 and y &gt; 1)          :  true</span>
+
+<span class="x">x==6 or y==5                :  true</span>
+
+<span class="x">x==6 xor y==3               :  false</span>
+
+<span class="x">(x==5 || y==5)              :  false</span>
+
+<span class="x">!(x==y)                     :   true</span>
+</code></pre></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/12/php-variables/">متغیرهای PHP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-12T15:12:00+04:30" pubdate data-updated="true">Aug 12<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/08/12/php-variables/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>تعریف متغیرها درPHP</h3>
+
+<p>یک متغیر در واقع مکانی برای ذخیره اطلاعات می باشد. متغیرها در PHP مانند متغیرهای ریاضی می تواند باری نگهداری مقادیر استفاده شود.</p>
+
+<p> نام یک متغیر می تواند یک نام کوتاه (مانند x یا y)، یا یک نام توصیفی (مانند age، carname، totalvolume) باشد.</p>
+
+<p> در زبان PHP قوانینی برای نامگذاری متغیرها وجود دارد که عبارتند از :</p>
+
+<ul>
+<li>نام یک متغیر با علامت $  و سپس نام متغیر شروع می شود.</li>
+<li>نام یک متغیر با یک حرف یا علامت _ شروع می شود.</li>
+<li>نام یک متغیر تنها می تواند شامل کاراکترهای حرفی-عددی و علامات (A-z, 0-9, and _ ) باشد.</li>
+<li>در نامگذاری یک متغیر نباید از علامت فاصله  استفاده نمود.</li>
+<li>نام متغیر به کوچکی و بزرگی حروف حساس است بنابراین $y و $Y دو متغیر جداگانه می باشند.</li>
+</ul>
+
+
+<p><strong>نکته:</strong></p>
+
+<p>به طور کلی زبان PHP به کوچکی و بزرگی حروف حساس است، بنابراین تمامی عبارات، دستورات و نام متغیرهای PHP نسبت به کوچکی و بزرگی حروف حساس هستند.</p>
+
+<h3>ایجاد(تعریف) متغیرهای PHP</h3>
+
+<p>در PHP برای تعریف متغیرها نیاز به نوشتن هیچ دستوری نیست، متغیرها به محض ایجاد و مقداردهی ایجاد می شوند.</p>
+
+<p><strong>مثال:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$txt</span> <span class="o">=</span> <span class="s2">&quot;Hello world!&quot;</span><span class="p">;</span>
+<span class="nv">$x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p>پس از اجرای عبارت بالا متغیر txt دارای مقدار Hello world! و متغیر x دارای مقدار 5 می شود.</p>
+
+<p><strong>نکته: </strong>
+هنگامی که به یک متغیر مقدار رشته ای اختصاص می دهید در اطراف مقدار آن علامت &ldquo; &rdquo; قرار دهید.</p>
+
+<h3>زبان نوع ضعیف  PHP</h3>
+
+<p>همانطور که در مثال قسمت قبل ملاحظه شد، هنگامی که یک متغیر را در PHP تعریف می کنید لازم نیست مشخص کنید که این متغیر از چه نوعی می باشد.
+زبان PHP (به طور خودکار) با توجه به مقدار متغیرها به آنها نوع داده ای مناسب را منتسب می کند.</p>
+
+<p><strong>نکته:</strong>
+در زبان های برنامه نویسی نوع قوی ، برنامه نویس مجبوراست که قبل از استفاده از متغیرها نوع و نام آنها را مشخص کند.</p>
+
+<h3>متغیرهای رشته ای در PHP</h3>
+
+<p>متغیرهای رشته ای برای نگهداری و ذخیره متون به کار می روند.</p>
+
+<p>در واقع این متغیرها برای نگهداری متغیرهایی که شامل کاراکترها هستند استفاده می شوند و پس از ایجاد یک متغیر رشته ای می توان روی آن اعمال محاسباتی مربوط به رشته ها را انجام داد.</p>
+
+<p>یک رشته می تواند به طور مستقیم در یک تابع استفاده شود و همچنین می تواند در یک متغیر ذخیره شود.</p>
+
+<p>در <strong>مثال</strong> زیر یک متغیر رشته ای به نام txt ایجاد شده است و سپس به آن مقدار &ldquo;Hello world!&rdquo; نسبت داده شده است.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$txt</span><span class="o">=</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$txt</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">&quot;Hello world!&quot;</span>
+</code></pre></div>
+
+
+<p>در این قسمت به معرفی برخی توابع عمومی و عملگرهای عمل کننده بر روی رشته ها در PHP پرداخته می شود.</p>
+
+<h3>عملگر الحاق</h3>
+
+<p>عملگر<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> الحاق در PHP نقطه ‘.’ می باشد. این عملگر   برای الحاق دو رشته به یکدیگر استفاده می شود.
+مثال زیر نحوه الحاق دو متغیر رشته ای به یکدیگر را نشان می دهد:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$txt1</span><span class="o">=</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">;</span>
+<span class="nv">$txt2</span><span class="o">=</span><span class="s2">&quot;What a nice day!&quot;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$txt1</span> <span class="o">.</span> <span class="s2">&quot; &quot;</span> <span class="o">.</span> <span class="nv">$txt2</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">Hello world! What a nice day!</span>
+</code></pre></div>
+
+
+<p>در مثال بالا دو بار از عملگر الحاق استفاده شده است. معنای “ “ این است که یک فاصله میان دو رشته txt1 و txt2 قرار داده شود.</p>
+
+<h3>تابع ()strlen</h3>
+
+<p>تابع ()strlen طول یک رشته (تعداد کاراکترها) را برمی گرداند.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">echo</span> <span class="nb">strlen</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">12</span>
+</code></pre></div>
+
+
+<p>این تابع می تواند در حلقه ها استفاده شود، بخصوص زمانیکه بخواهیم حلقه تا زمانی ادامه یابد که هنوز رشته به خاتمه نرسیده است.</p>
+
+<h3>تابع ()strops</h3>
+
+<p>تابع ()strops برای جستجوی کاراکتر خاص در یک رشته استفاده می شود.</p>
+
+<p>در صورتیکه این کاراکتر یافت شود، این تابع مکان آن کاراکتر در اولین تطابق  را برمی گرداند. در صورتیکه هیچ تطابقی یافت نشود، مقدار false برگردانده می شود.</p>
+
+<p><strong>مثال</strong> بعدی کلمه word را در رشته Hello world!  جستجو می کند.</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">echo</span> <span class="nb">strpos</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">6</span>
+</code></pre></div>
+
+
+<p>همانطور که در نتیجه اجرا مشاهده می کنید موقعیت برگردانده شده 6 (و نه 7) می باشد. علت این است که موقعیت کاراکتر اول در رشته 0 است و نه 1 .</p>
+
+<p>سایر توابع مربوط به رشته ها و کاربرد هرکدام از آنها در پیوست آمده است.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Operator<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/12/php-syntax/">گرامر زبان PHP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-12T13:59:00+04:30" pubdate data-updated="true">Aug 12<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/08/12/php-syntax/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>گرامر زبان PHP</h2>
+
+<p>زبان PHP بر روی سرور اجرا می شود و نتیجه آن که به صورت HTML است
+به مرورگر برگردانده می شود. در حقیقت هنگامی که کدهای PHP اجرا می شوند در صورتی
+که به source آنها نگاه کنیم هیچ کد PHP ای دیده نمی شود،
+بلکه تنها کدهای HTML دیده می شوند، بدین معنی که  Apache کدهای PHP را به HTML
+تبدیل می کند. کدهای PHP در قالبی به صورت زیر و در بین تگ body نوشته می شوند:</p>
+
+<div class="highlight"><pre><code class="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+
+<h3>گرامر کلی زبان PHP</h3>
+
+<p>شما می توانید کد PHP را در هر ویرایشگری بنویسید. این کد با تگ  <strong> php?> </strong> آغاز
+و با تگ <strong> &lt;? </strong> خاتمه می یابد:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="err">کدهای</span> <span class="nx">PHP</span> <span class="err">در</span> <span class="err">این</span> <span class="err">قسمت</span> <span class="err">نوشته</span> <span class="err">می</span> <span class="err">شوند</span><span class="c1">//</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p>همانطور که پیش از این گفته شد، پسوند پیش فرض فایل های <strong>php</strong> ، PHP<strong>.</strong> می باشد. به طور کلی هر فایل PHP شامل تگ های HTML و کدهای اسکریپتی PHP می باشد. در زیر مثال ساده ای از یک فایل PHP آورده شده است.</p>
+
+<p><strong>مثال: </strong>کد PHPای بنویسید که کلمه <em>!Hello World</em> را در سرور چاپ کند:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="s2">&quot;Hello World!&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong> نتیجه اجرا: </strong></p>
+
+<div class="highlight"><pre><code class="sh">Hello World!
+</code></pre></div>
+
+
+<p>هر خط کد در PHP می بایست با یک علامت <strong> ; </strong> خاتمه یابد. علامت <strong> ; </strong> یک جداکننده می باشد
+و به منظور جدا سازی مجموعه ای از دستورالعمل ها از یکدیگر به کار می رود.</p>
+
+<p>در PHP دو روش برای چاپ متن در مرورگر وجود دارد: <strong> echo </strong> و <strong> print </strong></p>
+
+<h3>نوشتن توضیحات در PHP</h3>
+
+<p>توضیحات دستوراتی هستند که کامپایلر (برنامه یا مجموعه‌ای از برنامه‌های کامپیوتری
+است که متنی از زبان برنامه نویسی سطح بالا (زبان مبدا) را به زبانی سطح پایین
+(زبان مقصد)، مثل اسمبلی یا زبان سطح ماشین، تبدیل می‌کند. خروجی این برنامه ممکن است
+برای پردازش شدن توسط برنامه دیگری مثل پیونددهنده مناسب باشد یا فایل متنی باشد
+ که انسان نیز بتواند آنرا بخواند.)با رسیدن به آنها، دستورات را نادیده گرفته و
+آنها را اجرا نمی کند. برای نوشتن توضیحات تک خطی درPHP می توان از علامت <strong> // </strong>
+در ابتدای توضیح استفاده نمود و برای نوشتن توضیحات چند خطی می توان در اولین خط از دستورات
+از علامت <strong> */ </strong> و در پایان از علامت <strong> /* </strong> استفاده نمود.</p>
+
+<p><strong> مثال: </strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="c1">// توضیحات تک خطی در PHP</span>
+
+<span class="cm">/*</span>
+<span class="cm">توضیحات بلوکی یا چند خطی در php</span>
+<span class="cm">*/</span>
+<span class="k">echo</span> <span class="s2">&quot;Hello World!&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>نتیجه اجرا:</strong></p>
+
+<div class="highlight"><pre><code class="sh">Hello World!
+</code></pre></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/10/php-fundamental/">مفاهیم پایه ای PHP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-10T13:56:00+04:30" pubdate data-updated="true">Aug 10<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/08/10/php-fundamental/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>مقدمه ای بر زبان PHP</h2>
+
+<h3>PHP چیست؟</h3>
+
+<p>زبان PHP یک زبان اسکریپتی تحت سرور و همچنین ابزار قدرتمندی برای ساخت صفحات وب پویا می باشد.
+این زبان، زبانی رایگان و بازمتن مورد استفاده همگانی و بسیار کاربردی می باشد و رقیبی قوی برای
+سایر زبان های مورد استفاده در زمینه تولید صفحات وب می باشد.</p>
+
+<h3>یک فایل PHP شامل چه مواردی است؟</h3>
+
+<p>فایل های PHP می توانند شامل متن، کدهای HTML، JavaScript و کد PHP باشند.کدهای PHP قابلیت اجرا بر روی هر سروری را دارند
+و نتیجه آنها در مرورگر  به صورت HTML برگردانده می شود. تمامی فایل های زبان PHP دارای پسوند <strong> php. </strong> می باشد.</p>
+
+<h3>قابلیت های PHP:</h3>
+
+<ul>
+<li>ایجاد صفحات پویای وب</li>
+<li>ایجاد، باز کردن، نوشتن، خواندن و بستن فایل های موجود بر روی سرور</li>
+<li>جمع آوری داده های فرم</li>
+<li>ارسال و دریافت کوکی ها</li>
+<li>اضافه کردن، حذف کردن و تغییر دادن اطلاعات در پایگاه داده</li>
+<li>محدود کردن دسترسی کاربران برای دسترسی به صفحات وب</li>
+<li>رمزگشایی  داده ها و اطلاعات</li>
+</ul>
+
+
+<p>لازم به ذکر است که شما با استفاده از PHP می توانید علاوه بر خروجی های HTML
+خروجی هایی مانند عکس، فایل پی دی اف و حتی فیلم های ساخته شده با
+نرم افزار فلش، داشته باشید. زبان PHP همچنین می تواند خروجی های متنی مانند XHTML و XML داشته باشد.</p>
+
+<h3>چرا از زبان PHP استفاده می کنیم؟</h3>
+
+<ul>
+<li>زبان PHP بر روی سیستم عامل های مختلفی (از جمله Windows, Linux, Unix, Mac OS X و غیره) اجرا می شود.</li>
+<li>زبان PHP تقریبا با تمامی سرورهایی که امروزه استفاده می شوند، سازگار می باشد.</li>
+<li>زبان PHP از محدوده گسترده ای از پایگاه  داده ها پشتیسانی می کند.</li>
+<li>یادگیری زبان PHP آسان است و به صورت کارا بر روی سرور اجرا می شود.</li>
+</ul>
+
+
+<h2>نحوه نصب PHP:</h2>
+
+<h3>آموزش نصب</h3>
+
+<p>برای شروع استفاده از PHP می توانید یکی از دو روش زیر را استفاده کنید:</p>
+
+<ul>
+<li>استفاده از یک میزبان وب ای که از PHP وپایگاه داده پشتیبانی می کند.</li>
+<li>نصب یک وب سرور بر روی کامپیوتر شخصی خودتان و سپس نصب PHP و MySQL بر روی آن</li>
+</ul>
+
+
+<h4>استفاده از یک میزبان وبی که از PHP و MySQL پشتیبانی می کند</h4>
+
+<p>در این روش، درصورتیکه سرور شما از PHP پشتیبانی می کند، لازم نیست هیچ کاری انجام
+دهید. کافیست فایل های PHP خود را که دارای پسوند <strong> php.</strong> هستند را در پوشه وب
+بسازید، سرور به طور اتوماتیک این فایل ها را برای شما اجرا می کند.
+همچنین در این روش نیازی نیست که هیچ ابزار اضافی را بر روی سیستم خود نصب کنید.</p>
+
+<h4>راه اندازی سرور محلی</h4>
+
+<p>همانطور که گفته شد PHP یک زبان برنامه نویسی تحت وب است و برای راه اندازی آن
+از یک وب سرور استفاده می کنیم. وب سروری که برای PHP استفاده می کنیم، آپاچی است.
+کدهای PHP را می توان در هر editor ای نوشت (مانند notepad و ++notepadd).</p>
+
+<p>نصب وب سرور را باید با دقت لازم انجام شود و حتی اگر یکی از مراحل به اشتباه انجام شود،
+ممکن است مجبور شوید تمام مراحل را از ابتدا انجام دهید. البته برنامه های سرویس دهنده
+ای (مانند WAMP، EasyPHP، PHPtraid، XAMPP و SQLware) وجود دارند که تمام امکانات لازم
+برای اجرای برنامه ها را بدون دردسر در اختیار کاربران قرار می دهند. از بین این
+برنامه ها، سرویس دهنده WAMP و XAMPP از محبوبیت بسیار زیادی بین برنامه نویسان PHP برخوردارند.
+ هنگامی که یکی از سرویس دهند های فوق را نصب می کنید دیگر لازم نیست Apache و MySQL را نصب کنید.
+این سرویس دهنده ها خودشان تنظیمات میان PHP و Apache را انجام می دهند.</p>
+
+<h4>راه اندازی WAMP SERVER</h4>
+
+<p>پس از دانلود این برنامه آن را روی سیستم خود نصب نمایید. در یکی از مراحل نصب
+این برنامه، کادری ظاهر می شود که در آن می بایست مسیر ریشه برای قرار دادن
+فایل های مربوط به سایت تعیین شود، به طور پیش فرض این مسیر در شاخه نصب WAMP
+و در پوشه www انتخاب شده است.</p>
+
+<p>نکته: این مسیر را به خاطر بسپارید، زیرا از این پس برای اینکه بتوانید برنامه های
+خود را اجرا کنید، حتماً باید آنها را در این پوشه ذخیره کنید.
+پس از نصب WAMP، روی ناحیه تذکر از نوار وظیفه یک آیکن به شکل نیم دایره سفید ظاهر می شود.</p>
+
+<p><img src="/images/php/fundamental/wamp_0.png" title="&#34;شکل ۱: سرویس دهنده WAMP&#34;" alt="&#34;شکل ۱: سرویس دهنده WAMP&#34;"></p>
+
+<p>شکل 1: سرویس دهنده WAMP</p>
+
+<p>ظاهر شدن این آیکن با رنگ های قرمز با زرد به این معناست که سرویس ها به طور کامل
+در حال اجرا نیستند و یا اینکه به درستی عمل نمی کنند. در این صورت برای اجرای
+مجدد سرویس ها روی آیکن نیم دایره کلیک کنید. به شکل 1 توجه کنید،علامت مثلث کنار
+سرویس های Apache و MySQL به معنای این است که سرویس در حال اجراست. در صورتیکه
+این علامت به مربع تبدیل شود به معنای توقف سرویس هاست. در این صورت برای اجرای
+سرویس روی گزینه  Start/Resume Serviceکلیک کنید.</p>
+
+<p>پس از نصب برنامه WAMP می توانید عملیات برنامه نویسی در PHP را آغاز کنید و
+پس از ذخیره هر برنامه، اجرای آن را توسط مرورگر مشاهده کنید.</p>
+
+<h3>نصب یک وب سرور بر روی کامپیوتر شخصی</h3>
+
+<p>درصورتیکه کامپیوتر یا سرور شما از PHP پشتیبانی نمی کند، باید موارد زیر را بر روی آن نصب کنید:</p>
+
+<ul>
+<li>وب سرور</li>
+<li>زبان PHP</li>
+<li>یک پایگاه داده مانند MySQL</li>
+</ul>
+
+
+<p>در صورت عدم استفاده از WAMP یا سرویس دهنده های مشابه، باید PHP، Apache و MySQL را یکی پس از دیگری نصب وپیکر بندی نمایید.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/05/how-to-contirbute/">مشارکت در توسعه سایت</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-05T03:33:00+04:30" pubdate data-updated="true">Aug 5<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/08/05/how-to-contirbute/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>مشارکت در توسعه توتورز</h2>
+
+<p>سایت <a href="http://tutors.github.io">توتورز</a> به صورت گروهی و با همکاری ما و شما، تهیه و تدوین می شود. شما با هر دانش و سلیقه ای می توانید در توسعه ی آن نقش داشته باشید. این توسعه شامل اعمال تغییرات کوچک مانند گرفتن اشکالات ویرایشی و ارسال نظر برای ایجاد مطالب جدید یا حتی ارسال یک مطلب به توتورز می باشد.</p>
+
+<p>سایت توتورز به صورت کاملا اوپن سورس گسترش می یابد و شما می توانید به تمام سورس، مطالب و منابع آن دسترسی داشته باشید.
+ما توسعه دهندگان توتورز و شما همراهان توتورز خوشحالیم که می خواهیم گامی هر چند کوچک در راه آموزش، انتقال تجربیات و دانش برای هم و در کنار هم بر داریم.</p>
+
+<p>برای آشنایی با روش های مختلف توسعه توتورز می توانید به <a href="http://tutors.github.io/contribution">توسعه توتورز</a> مراجعه کنید.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/03/first-post/">اولین پست</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-03T22:36:00+04:30" pubdate data-updated="true">Aug 3<span>rd</span>, 2013</time>
+        
+         | <a href="/blog/2013/08/03/first-post/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>این پست آزمایشی است.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/17/html-tags/">انواع تگ های Html</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-post-variable/">متغیر POST_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-get-variable/">متغیر GET_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-form-and-user-input/">فرم ها و ورودی کاربر</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-variables-scope/">حوزه متغيرهاي PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-functions/">توابع PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-sorting-arrays/">مرتب سازی آرایه ها در PHP</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - حسین زلفی -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tutorsir';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

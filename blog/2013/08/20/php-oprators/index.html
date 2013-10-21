@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>عملگرهای PHP - آموزش روش های توسعه نرم افزار</title>
+  <meta name="author" content="حسین زلفی">
+
+  
+  <meta name="description" content="عملگرهای PHP در PHP عملگر مساوی = برای انتساب مقادیر به متغیرها به کار می رود. عملگر محاسباتی + نیز برای جمع مقادیر مورد استفاده قرارمی گیرد. انواع &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tutors.github.io/blog/2013/08/20/php-oprators">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="آموزش روش های توسعه نرم افزار" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-42924755-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">آموزش روش های توسعه نرم افزار</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tutors.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">خانه</a></li>
+  <li><a href="/blog/archives">آرشیو</a></li>
+  <li><a href="/contribution">توسعه توتورز</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">عملگرهای PHP</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T12:34:00+04:30" pubdate data-updated="true">Aug 20<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>عملگرهای PHP</h2>
+
+<p>در PHP عملگر مساوی = برای انتساب مقادیر به متغیرها به کار می رود. عملگر محاسباتی + نیز برای جمع مقادیر مورد استفاده قرارمی گیرد.</p>
+
+<h2>انواع عملگرهای محاسباتی PHP</h2>
+
+<p>انواع عملگرهای PHP عبارتند از:</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">شرح    :    عملگر</span>
+<span class="x"> </span>
+<span class="x">x + y    : جمع x و y</span>
+
+<span class="x">x - y    : تفریق x و y</span>
+
+<span class="x">x * y    : ضرب x و y</span>
+
+<span class="x">x / y    : تقسیم x بر y</span>
+
+<span class="x">x % y    : باقیمانده تقسیم x بر y</span>
+
+<span class="x">-x       : قرینه x </span>
+
+<span class="x">a . b    : الحاق دو رشته</span>
+</code></pre></div>
+
+
+<h2>عملگرهای انتساب PHP</h2>
+
+<p>عملگر اصلی انتساب در PHP، “=” می باشد. به این معنی که عملوند سمت چپ برابر مقدار عملوند سمت راست را می گیرد.</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">عبارت معادل :   انتساب</span>
+
+<span class="x">x = y    : x = y</span>
+
+<span class="x">x += y   : x = x + y</span>
+
+<span class="x">x -= y   : x = x - y</span>
+
+<span class="x">x *= y   : x = x * y</span>
+
+<span class="x">x /= y   : x = x / y</span>
+
+<span class="x">x %= y   : x = x % y</span>
+
+<span class="x">a .= b   : a = a . b</span>
+</code></pre></div>
+
+
+<h2>عملگرهای افزایش/کاهش</h2>
+
+<div class="highlight"><pre><code class="php"><span class="x">شرح    :   عملگر</span>
+
+<span class="x">++ x    : ابتدا مقدار x را یک واحد افزایش می دهد و سپس مقدار آن را بر می گرداند. </span>
+
+
+<span class="x">x ++    : ابتدا مقدار x را بر می گرداند و سپس به مقدار آن یک واحد اضافه می کند.</span>
+
+<span class="x">-- x    : ابتدا مقدار x را یک واحد کاهش می دهد و سپس مقدار آن را بر می گرداند.</span>
+
+<span class="x">x --    : ابتدا مقدار x را بر می گرداند و سپس از مقدار آن یک واحد کم می کند.</span>
+</code></pre></div>
+
+
+<h2>عملگرهای مقایسه ای</h2>
+
+<p>عملگرهای مقایسه ای به  شما اجازه می دهند که دو مقدار را با یکدیگر مقایسه کنید:</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">شرح    :      عملگر</span>
+
+<span class="x">x == y     : نتیجه در صورتی true  می باشد که  x با y مساوی باشد </span>
+
+<span class="x">x === y    : نتیجه  در صورتی true می باشد که x با y مساوی باشد و x و y هر دو از یک نوع باشند.</span>
+
+<span class="x">x != y     : نتیجه در صورتی true است که x با y مساوی نباشد.</span>
+
+
+<span class="x">x &lt;&gt; y     : نتیجه در صورتی  true است که x با y مساوی نباشد.</span>
+
+<span class="x">x !== y    : نتیجه در صورتی true می باشد که x با y مساوی نباشد یا x و y هر دو از یک نوع نباشند.</span>
+
+<span class="x">x &gt; y      : نتیجه در صورتی true می باشد که x بزرگتر ازy باشد.</span>
+
+
+<span class="x">x &lt; y      : نتیجه در صورتی true می باشد که x کوچکتر ازy باشد.</span>
+
+<span class="x">x &gt;= y     : نتیجه در صورتی true می باشد که x بزرگتر یا مساویy باشد.</span>
+
+<span class="x">x &lt;= y     : نتیجه در صورتی true می باشد که x کوچکتر یا مساویy باشد.</span>
+</code></pre></div>
+
+
+<p><strong>مثال</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">نتیجه    :     عبارت</span>
+
+<span class="x">5==8       : false</span>
+
+<span class="x">5===&quot;5&quot;    : false </span>
+
+<span class="x">5!=8       : true</span>
+
+<span class="x">5&lt;&gt;8       : true</span>
+
+
+<span class="x">5!==&quot;5&quot;    : true</span>
+
+<span class="x">5&gt;8        : false</span>
+
+<span class="x">5&lt;8        : true</span>
+
+<span class="x">5&gt;=8       : false</span>
+
+<span class="x">5&lt;=8       : true</span>
+</code></pre></div>
+
+
+<h2>عملگرهای منطقی</h2>
+
+<div class="highlight"><pre><code class="php"><span class="x">شرح    :      عملگر</span>
+
+<span class="x">x and y    : در صورتی true است که هم xو هم true  ،y باشد</span>
+
+<span class="x">x or y     : در صورتی true است که  x یا y (یک از این دو  یا هر دو)true باشد.</span>
+
+
+<span class="x">x xor y    : در صورتی true است که یا x یا y (و نه هر دو)true باشد.</span>
+
+<span class="x">x &amp;&amp; y     : در صورتی true است که هم xو هم  true ،y باشد</span>
+
+<span class="x">x || y     : در صورتی true است که  x یا y (یک از این دو  یا هر دو)true باشد.</span>
+
+<span class="x">! x        : در صورتی true است که  true ،x نباشد.</span>
+</code></pre></div>
+
+
+<p><strong>مثال</strong></p>
+
+<p> اگر x = 6 و y = 3 باشد حاصل هریک از عبارت های زیر را بدست آورید.</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">نتیجه    :                       عبارت</span>
+
+<span class="x">(x &lt; 10 and y &gt; 1)          :  true</span>
+
+<span class="x">x==6 or y==5                :  true</span>
+
+<span class="x">x==6 xor y==3               :  false</span>
+
+<span class="x">(x==5 || y==5)              :  false</span>
+
+<span class="x">!(x==y)                     :   true</span>
+</code></pre></div>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">فاطمه کربلایی</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T12:34:00+04:30" pubdate data-updated="true">Aug 20<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php-fundamental/'>php-fundamental</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://tutors.github.io/blog/2013/08/20/php-oprators/" data-via="" data-counturl="http://tutors.github.io/blog/2013/08/20/php-oprators/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/12/php-variables/" title="Previous Post: متغیرهای PHP">&laquo; متغیرهای PHP</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/08/20/php-if/" title="Next Post: عبارات If … Else ">عبارات If … Else  &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/17/html-tags/">انواع تگ های Html</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-post-variable/">متغیر POST_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-get-variable/">متغیر GET_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-form-and-user-input/">فرم ها و ورودی کاربر</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-variables-scope/">حوزه متغيرهاي PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-functions/">توابع PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-sorting-arrays/">مرتب سازی آرایه ها در PHP</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - حسین زلفی -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tutorsir';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tutors.github.io/blog/2013/08/20/php-oprators/';
+        var disqus_url = 'http://tutors.github.io/blog/2013/08/20/php-oprators/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

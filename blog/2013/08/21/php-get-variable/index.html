@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>متغیر GET_ $ در PHP - آموزش روش های توسعه نرم افزار</title>
+  <meta name="author" content="حسین زلفی">
+
+  
+  <meta name="description" content="متغیر از پیش تعریف شده GET_ $ به منظور جمع آوری مقادیر یک فرم که با متد method=&ldquo;get&rdquo; مشخص شده اند، به کار می رود. به عبارت دیگر این متغیر &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tutors.github.io/blog/2013/08/21/php-get-variable">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="آموزش روش های توسعه نرم افزار" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-42924755-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">آموزش روش های توسعه نرم افزار</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tutors.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">خانه</a></li>
+  <li><a href="/blog/archives">آرشیو</a></li>
+  <li><a href="/contribution">توسعه توتورز</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">متغیر GET_ $ در PHP</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-21T16:35:00+04:30" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>متغیر از پیش تعریف شده GET_ $ به منظور جمع آوری مقادیر یک فرم که با متد method=&ldquo;get&rdquo; مشخص شده اند، به کار می رود.</p>
+
+<p> به عبارت دیگر این متغیر مقادیری را در یک فرم با متد method=&ldquo;get&rdquo; مشخص شده اند را جمع آوری می کند.</p>
+
+<p>اطلاعات فرستاده شده توسط متد GET برای هرکسی قابل رویت هستند ( در منوی آدرس  هر مرورگر دیده می شود).</p>
+
+<p> اطلاعات فرستاده شده توسط متد GET محدود به حجم اطلاعاتی است که فرستاده می شوند.</p>
+
+<p><strong>مثال:</strong></p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;welcome.php&quot;</span> <span class="na">method=</span><span class="s">&quot;get&quot;</span><span class="nt">&gt;</span>
+Name: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;fname&quot;</span><span class="nt">&gt;</span>
+Age: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;age&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div>
+
+
+<p>هنگامی که کاربر بر روی دکمه submit کلیک می کند، URL فرستاده شده به سرور مشابه زیر خواهد بود:</p>
+
+<div class="highlight"><pre><code class="html">Welcome <span class="cp">&lt;?php echo $_GET[&quot;fname&quot;]; ?&gt;</span>.<span class="nt">&lt;br&gt;</span>
+You are <span class="cp">&lt;?php echo $_GET[&quot;age&quot;]; ?&gt;</span> years old!
+</code></pre></div>
+
+
+<h2>چه موقع از متد get استفاده می کنیم؟</h2>
+
+<p>هنگامی که از متد method=&ldquo;get&rdquo; در فرم HTML استفاده می شود، تمامی متغیرها و نام آنها در URL نمایش داده می شوند.</p>
+
+<p><strong>نکته:</strong></p>
+
+<p> این متد هنگامی که می خواهید اطلاعاتی محرمانه مانند پسورد بفرستید نباید استفاده شود.</p>
+
+<p>به هرحال از آنجائیکه در این متد متغیرها در URL نمایش داده می شوند،
+می توان صفحات را نشانه گذاری  کرد و در بعضی حالات می تواند مفید باشد.</p>
+
+<p><strong>نکته:</strong></p>
+
+<p> متد get برای مقادیر بسیار بزرگ متغیرها مناسب نیست و نبایستی با مقادیر بیش از 2000  کاراکتر استفاده شود.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">فاطمه کربلایی</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-21T16:35:00+04:30" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php-fundamental/'>php-fundamental</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://tutors.github.io/blog/2013/08/21/php-get-variable/" data-via="" data-counturl="http://tutors.github.io/blog/2013/08/21/php-get-variable/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/21/php-form-and-user-input/" title="Previous Post: فرم ها و ورودی کاربر">&laquo; فرم ها و ورودی کاربر</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/08/21/php-post-variable/" title="Next Post: متغیر POST_ $ در PHP">متغیر POST_ $ در PHP &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/17/html-tags/">انواع تگ های Html</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-post-variable/">متغیر POST_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-get-variable/">متغیر GET_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-form-and-user-input/">فرم ها و ورودی کاربر</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-variables-scope/">حوزه متغيرهاي PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-functions/">توابع PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-sorting-arrays/">مرتب سازی آرایه ها در PHP</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - حسین زلفی -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tutorsir';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tutors.github.io/blog/2013/08/21/php-get-variable/';
+        var disqus_url = 'http://tutors.github.io/blog/2013/08/21/php-get-variable/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
