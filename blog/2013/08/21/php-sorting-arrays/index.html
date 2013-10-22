@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>مرتب سازی آرایه ها در PHP - آموزش روش های توسعه نرم افزار</title>
+  <meta name="author" content="حسین زلفی">
+
+  
+  <meta name="description" content="عناصر آرایه ها می توانند به صورت الفبایی یا عددی (صعودی یا نزولی) مرتب شوند. توابع مرتب سازی در PHP در این قسمت به معرفی توابع مرتب سازی آرایه در PHP &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tutors.github.io/blog/2013/08/21/php-sorting-arrays">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="آموزش روش های توسعه نرم افزار" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-42924755-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">آموزش روش های توسعه نرم افزار</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tutors.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">خانه</a></li>
+  <li><a href="/blog/archives">آرشیو</a></li>
+  <li><a href="/contribution">توسعه توتورز</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">مرتب سازی آرایه ها در PHP</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-21T13:52:00+04:30" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>عناصر آرایه ها می توانند به صورت الفبایی یا عددی (صعودی یا نزولی) مرتب شوند.</p>
+
+<h2>توابع مرتب سازی در PHP</h2>
+
+<p>در این قسمت به معرفی توابع مرتب سازی آرایه در PHP پرداخته می شود:</p>
+
+<ul>
+<li><p>()sort: آرایه را به ترتیب صعودی مرتب می کند.</p></li>
+<li><p>()rsort:آرایه را به ترتیب نزولی مرتب می کند.</p></li>
+<li><p>()asort: آرایه انجمنی را با توجه به مقادیر<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>  آن به صورت صعودی مرتب می کند.</p></li>
+<li><p>()ksort:آرایه انجمنی را با توجه به کلید<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>های  آن به صورت صعودی مرتب می کند.</p></li>
+<li><p>()arsort:آرایه انجمنی را با توجه به مقادیر  آن به صورت نزولی مرتب می کند.</p></li>
+<li><p>()krsort:آرایه انجمنی را با توجه به کلیدهای  آن به صورت نزولی مرتب می کند.</p></li>
+</ul>
+
+
+<h2>مرتب¬سازی آرایه به ترتیب صعودی- ()sort</h2>
+
+<p><strong>مثال</strong> زیر عناصر آرایه $cars را به ترتیب صعودی بر اساس حروف الفبا مرتب می کند:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$cars</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;Volvo&quot;</span><span class="p">,</span><span class="s2">&quot;BMW&quot;</span><span class="p">,</span><span class="s2">&quot;Toyota&quot;</span><span class="p">);</span>
+<span class="nb">sort</span><span class="p">(</span><span class="nv">$cars</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>خروجی:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">BMW</span>
+<span class="x">Toyota</span>
+<span class="x">Volvo</span>
+</code></pre></div>
+
+
+<p><strong>مثال:</strong></p>
+
+<p> مرتب سازی آرایه $numbers به ترتیب صعودی &ndash; عددی</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$numbers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">11</span><span class="p">);</span>
+<span class="nb">sort</span><span class="p">(</span><span class="nv">$numbers</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>خروجی:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">2</span>
+<span class="x">4</span>
+<span class="x">6</span>
+<span class="x">11</span>
+<span class="x">22</span>
+</code></pre></div>
+
+
+<h2>مرتب سازی آرایه به ترتیب نزولی- ()rsort:</h2>
+
+<p><strong>مثال:</strong></p>
+
+<p> مرتب سازی عناصر آرایه cars$ به ترتیب نزولی</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$cars</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;Volvo&quot;</span><span class="p">,</span><span class="s2">&quot;BMW&quot;</span><span class="p">,</span><span class="s2">&quot;Toyota&quot;</span><span class="p">);</span>
+<span class="nb">rsort</span><span class="p">(</span><span class="nv">$cars</span><span class="p">);</span>
+
+<span class="nv">$clength</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$cars</span><span class="p">);</span>
+<span class="k">for</span><span class="p">(</span><span class="nv">$x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="nv">$x</span> <span class="o">&lt;</span> <span class="nv">$clength</span><span class="p">;</span><span class="nv">$x</span><span class="o">++</span><span class="p">)</span>
+   <span class="p">{</span>
+   <span class="k">echo</span> <span class="nv">$cars</span><span class="p">[</span><span class="nv">$x</span><span class="p">];</span>
+   <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>خروجی:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">Volvo</span>
+<span class="x">Toyota</span>
+<span class="x">BMW</span>
+</code></pre></div>
+
+
+<p><strong>مثال:</strong></p>
+
+<p> مرتب سازی آرایه numbers$ به ترتیب نزولی – عددی</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$numbers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">11</span><span class="p">);</span>
+<span class="nb">rsort</span><span class="p">(</span><span class="nv">$numbers</span><span class="p">);</span>
+
+<span class="nv">$arrlength</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$numbers</span><span class="p">);</span>
+<span class="k">for</span><span class="p">(</span><span class="nv">$x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="nv">$x</span> <span class="o">&lt;</span> <span class="nv">$arrlength</span><span class="p">;</span><span class="nv">$x</span><span class="o">++</span><span class="p">)</span>
+   <span class="p">{</span>
+   <span class="k">echo</span> <span class="nv">$numbers</span><span class="p">[</span><span class="nv">$x</span><span class="p">];</span>
+   <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>خروجی:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">22</span>
+<span class="x">11</span>
+<span class="x">6</span>
+<span class="x">4</span>
+<span class="x">2</span>
+</code></pre></div>
+
+
+<h2>مرتب سازی آرایه انجمنی به ترتیب صعودی و نزولی:</h2>
+
+<p><strong>مثال:</strong></p>
+
+<p> مرتب سازی صعودی آرایه انجمنی بر اساس مقادیر  آن-  ()assort:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$age</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;Peter&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;35&quot;</span><span class="p">,</span><span class="s2">&quot;Ben&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;37&quot;</span><span class="p">,</span><span class="s2">&quot;Joe&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;43&quot;</span><span class="p">);</span>
+<span class="nb">asort</span><span class="p">(</span><span class="nv">$age</span><span class="p">);</span>
+
+<span class="k">foreach</span><span class="p">(</span><span class="nv">$age</span> <span class="k">as</span> <span class="nv">$x</span><span class="o">=&gt;</span><span class="nv">$x_value</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">&quot;Key = &quot;</span> <span class="o">.</span> <span class="nv">$x</span> <span class="o">.</span> <span class="s2">&quot;, Value = &quot;</span> <span class="o">.</span> <span class="nv">$x_value</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>خروجی:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">Key = Peter, Value = 35</span>
+<span class="x">Key = Ben, Value = 37</span>
+<span class="x">Key = Joe, Value = 43</span>
+</code></pre></div>
+
+
+<p><strong>مثال:</strong></p>
+
+<p> مرتب سازی صعودی آرایه انجمنی بر اساس کلیدهای  آن- ()ksort:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$age</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;Peter&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;35&quot;</span><span class="p">,</span><span class="s2">&quot;Ben&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;37&quot;</span><span class="p">,</span><span class="s2">&quot;Joe&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;43&quot;</span><span class="p">);</span>
+<span class="nb">ksort</span><span class="p">(</span><span class="nv">$age</span><span class="p">);</span>
+
+<span class="k">foreach</span><span class="p">(</span><span class="nv">$age</span> <span class="k">as</span> <span class="nv">$x</span><span class="o">=&gt;</span><span class="nv">$x_value</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">&quot;Key = &quot;</span> <span class="o">.</span> <span class="nv">$x</span> <span class="o">.</span> <span class="s2">&quot;, Value = &quot;</span> <span class="o">.</span> <span class="nv">$x_value</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>خروجی:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">Key = Ben, Value = 37</span>
+<span class="x">Key = Joe, Value = 43</span>
+<span class="x">Key = Peter, Value = 35</span>
+</code></pre></div>
+
+
+<p><strong>مثال:</strong></p>
+
+<p> مرتب سازی نزولی آرایه انجمنی بر اساس مقادیر  آن- ()arsort:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$age</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;Peter&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;35&quot;</span><span class="p">,</span><span class="s2">&quot;Ben&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;37&quot;</span><span class="p">,</span><span class="s2">&quot;Joe&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;43&quot;</span><span class="p">);</span>
+<span class="nb">arsort</span><span class="p">(</span><span class="nv">$age</span><span class="p">);</span>
+
+<span class="k">foreach</span><span class="p">(</span><span class="nv">$age</span> <span class="k">as</span> <span class="nv">$x</span><span class="o">=&gt;</span><span class="nv">$x_value</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">&quot;Key = &quot;</span> <span class="o">.</span> <span class="nv">$x</span> <span class="o">.</span> <span class="s2">&quot;, Value = &quot;</span> <span class="o">.</span> <span class="nv">$x_value</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>خروجی:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">Key = Joe, Value = 43</span>
+<span class="x">Key = Ben, Value = 37</span>
+<span class="x">Key = Peter, Value = 35</span>
+</code></pre></div>
+
+
+<p><strong>مثال:</strong></p>
+
+<p> مرتب سازی نزولی آرایه انجمنی بر اساس کلیدهای  آن – ()krsort:</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nv">$age</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;Peter&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;35&quot;</span><span class="p">,</span><span class="s2">&quot;Ben&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;37&quot;</span><span class="p">,</span><span class="s2">&quot;Joe&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;43&quot;</span><span class="p">);</span>
+<span class="nb">krsort</span><span class="p">(</span><span class="nv">$age</span><span class="p">);</span>
+
+<span class="k">foreach</span><span class="p">(</span><span class="nv">$age</span> <span class="k">as</span> <span class="nv">$x</span><span class="o">=&gt;</span><span class="nv">$x_value</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">&quot;Key = &quot;</span> <span class="o">.</span> <span class="nv">$x</span> <span class="o">.</span> <span class="s2">&quot;, Value = &quot;</span> <span class="o">.</span> <span class="nv">$x_value</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+
+<p><strong>خروجی:</strong></p>
+
+<div class="highlight"><pre><code class="php"><span class="x">Key = Peter, Value = 35</span>
+<span class="x">Key = Joe, Value = 43</span>
+<span class="x">Key = Ben, Value = 37</span>
+</code></pre></div>
+
+
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>value<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+<li id="fn:2">
+<p>key<a href="#fnref:2" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">فاطمه کربلایی</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-21T13:52:00+04:30" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php-fundamental/'>php-fundamental</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://tutors.github.io/blog/2013/08/21/php-sorting-arrays/" data-via="" data-counturl="http://tutors.github.io/blog/2013/08/21/php-sorting-arrays/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/21/php-for-loops/" title="Previous Post: حلقه های for در PHP">&laquo; حلقه های for در PHP</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/08/21/php-functions/" title="Next Post: توابع PHP">توابع PHP &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/17/html-tags/">انواع تگ های Html</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-post-variable/">متغیر POST_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-get-variable/">متغیر GET_ $ در PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-form-and-user-input/">فرم ها و ورودی کاربر</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-variables-scope/">حوزه متغيرهاي PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-functions/">توابع PHP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/php-sorting-arrays/">مرتب سازی آرایه ها در PHP</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - حسین زلفی -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tutorsir';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tutors.github.io/blog/2013/08/21/php-sorting-arrays/';
+        var disqus_url = 'http://tutors.github.io/blog/2013/08/21/php-sorting-arrays/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

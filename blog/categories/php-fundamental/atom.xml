@@ -4,7 +4,7 @@
   <title><![CDATA[Category: php-fundamental | آموزش روش های توسعه نرم افزار]]></title>
   <link href="http://tutors.github.io/blog/categories/php-fundamental/atom.xml" rel="self"/>
   <link href="http://tutors.github.io/"/>
-  <updated>2013-08-11T22:24:12+04:30</updated>
+  <updated>2013-10-17T16:19:28+03:30</updated>
   <id>http://tutors.github.io/</id>
   <author>
     <name><![CDATA[حسین زلفی]]></name>
@@ -14,21 +14,111 @@
 
   
   <entry>
-    <title type="html"><![CDATA[گرامر زبان PHP]]></title>
-    <link href="http://tutors.github.io/blog/2013/08/12/php-syntax/"/>
-    <updated>2013-08-12T13:59:00+04:30</updated>
-    <id>http://tutors.github.io/blog/2013/08/12/php-syntax</id>
-    <content type="html"><![CDATA[<h2>گرامر زبان PHP</h2>
+    <title type="html"><![CDATA[متغیر POST_ $ در PHP]]></title>
+    <link href="http://tutors.github.io/blog/2013/08/21/php-post-variable/"/>
+    <updated>2013-08-21T17:28:00+04:30</updated>
+    <id>http://tutors.github.io/blog/2013/08/21/php-post-variable</id>
+    <content type="html"><![CDATA[<h2>متغیر POST_ $</h2>
 
-<p>زبان PHP بر روی سرور اجرا می شود و نتیجه آن که به صورت HTML است
-به مرورگر برگردانده می شود. در حقیقت هنگامی که کدهای PHP اجرا می شوند در صورتی
-که به source آنها نگاه کنیم هیچ کد PHP ای دیده نمی شود،
-بلکه تنها کدهای HTML دیده می شوند، بدین معنی که  Apache کدهای PHP را به HTML
-تبدیل می کند. کدهای PHP در قالبی به صورت زیر و در بین تگ body نوشته می شوند:</p>
+<p>متغیر از پیش تعریف شده POST_ $ به منظور جمع آوری مقادیر یک فرم که با متد method=&ldquo;post&rdquo; مشخص شده اند، به کار می رود.</p>
 
-<p><div class="highlight"><pre><code class="html"><span class="ni">&amp;lt;</span>!DOCTYPE html&gt;
-<span class="nt">&lt;html&gt;</span>
+<p>اطلاعات فرستاده شده توسط متد post برای دیگران قابل رویت نیستند  و هیچ محدودیتی به حجم اطلاعاتی که می توان فرستاد، ندارد.</p>
+
+<p><strong>نکته:</strong></p>
+
+<p> به هر حال ماکزیمم سایزی برای متد post وجود دارد، که به صورت پیش فرض8mb می باشد.</p>
+
+<p>می توان این مقدار را با تغییر setting موجود در فایل php.ini در قسمت post-max-size عوض کرد.</p>
+
+<h2>چه موقع از متد post استفاده می کنیم؟</h2>
+
+<p>هر زمان به جز زمانی که بخواهیم صفحه خود را book mark کنیم.</p>
+
+<h2>متغیر REQUSET_ $</h2>
+
+<p>متغیر از پیش تعریف شده REQUSET _$ شامل مقادیر مربوط به GET _ $ و  POST _ $ و COOKIE _ $ می باشد.</p>
+
+<p>این متغیر می تواند به منظور جمع آوری داده فرستاده شده از هر دو متد  post و get استفاده شود.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[متغیر GET_ $ در PHP]]></title>
+    <link href="http://tutors.github.io/blog/2013/08/21/php-get-variable/"/>
+    <updated>2013-08-21T16:35:00+04:30</updated>
+    <id>http://tutors.github.io/blog/2013/08/21/php-get-variable</id>
+    <content type="html"><![CDATA[<p>متغیر از پیش تعریف شده GET_ $ به منظور جمع آوری مقادیر یک فرم که با متد method=&ldquo;get&rdquo; مشخص شده اند، به کار می رود.</p>
+
+<p> به عبارت دیگر این متغیر مقادیری را در یک فرم با متد method=&ldquo;get&rdquo; مشخص شده اند را جمع آوری می کند.</p>
+
+<p>اطلاعات فرستاده شده توسط متد GET برای هرکسی قابل رویت هستند ( در منوی آدرس  هر مرورگر دیده می شود).</p>
+
+<p> اطلاعات فرستاده شده توسط متد GET محدود به حجم اطلاعاتی است که فرستاده می شوند.</p>
+
+<p><strong>مثال:</strong></p>
+
+<p><div class="highlight"><pre><code class="html"><span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;&lt;form</span> <span class="na">action=</span><span class="s">&quot;welcome.php&quot;</span> <span class="na">method=</span><span class="s">&quot;get&quot;</span><span class="nt">&gt;</span>
+Name: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;fname&quot;</span><span class="nt">&gt;</span>
+Age: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;age&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<p>هنگامی که کاربر بر روی دکمه submit کلیک می کند، URL فرستاده شده به سرور مشابه زیر خواهد بود:</p>
+
+<p><div class="highlight"><pre><code class="html">Welcome <span class="ni">&amp;lt;</span>?php echo $<span class="nt">&lt;em&gt;</span>GET[<span class="ni">&amp;ldquo;</span>fname<span class="ni">&amp;rdquo;</span>]; ?&gt;.<span class="nt">&lt;br&gt;</span>
+You are <span class="ni">&amp;lt;</span>?php echo $<span class="nt">&lt;/em&gt;</span>GET[<span class="ni">&amp;ldquo;</span>age<span class="ni">&amp;rdquo;</span>]; ?&gt; years old!<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<h2>چه موقع از متد get استفاده می کنیم؟</h2>
+
+<p>هنگامی که از متد method=&ldquo;get&rdquo; در فرم HTML استفاده می شود، تمامی متغیرها و نام آنها در URL نمایش داده می شوند.</p>
+
+<p><strong>نکته:</strong></p>
+
+<p> این متد هنگامی که می خواهید اطلاعاتی محرمانه مانند پسورد بفرستید نباید استفاده شود.</p>
+
+<p>به هرحال از آنجائیکه در این متد متغیرها در URL نمایش داده می شوند،
+می توان صفحات را نشانه گذاری  کرد و در بعضی حالات می تواند مفید باشد.</p>
+
+<p><strong>نکته:</strong></p>
+
+<p> متد get برای مقادیر بسیار بزرگ متغیرها مناسب نیست و نبایستی با مقادیر بیش از 2000  کاراکتر استفاده شود.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[فرم ها و ورودی کاربر]]></title>
+    <link href="http://tutors.github.io/blog/2013/08/21/php-form-and-user-input/"/>
+    <updated>2013-08-21T15:23:00+04:30</updated>
+    <id>http://tutors.github.io/blog/2013/08/21/php-form-and-user-input</id>
+    <content type="html"><![CDATA[<p>متغیرهای POST _ $  و GET _ $ به منظور بازیابی اطلاعات از فرم <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> (مانند ورودی کاربر) به کار می روند.</p>
+
+<h2>مدیریت فرم ها در PHP</h2>
+
+<p>مهمترین نکته ای که هنگام کار با فرم های HTML و PHP با آن برخورد می کنید،
+این است که:</p>
+
+<p> هر عنصر فرم در صفحه HTML به طور اتوماتیک در اسکریپت های PHP شما وجود خواهند داشت.</p>
+
+<p><strong>مثال:</strong></p>
+
+<p> مثال زیر شامل یک فرم HTML با دو فیلد برای ورود اطلاعات و یک دکمه می باشد.</p>
+
+<p><div class="highlight"><pre><code class="html"><span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;body&gt;&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;&lt;form</span> <span class="na">action=</span><span class="s">&quot;welcome.php&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+Name: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;fname&quot;</span><span class="nt">&gt;</span>
+Age: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;age&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;&lt;/p&gt;</span>
 
 <span class="nt">&lt;p&gt;&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;&lt;/p&gt;</span>
@@ -36,31 +126,20 @@
 <span class="nt">&lt;p&gt;</span>
 </code></pre></div></p>
 
-<h3>گرامر کلی زبان PHP</h3>
+<p>هنگامی که کاربر فرم بالا را پر کرده و روی دکمه submit کلیک می کند،</p>
 
-<p>شما می توانید کد PHP را در هر ویرایشگری بنویسید. این کد با تگ  <strong> php?> </strong> آغاز
-و با تگ <strong> &lt;? </strong> خاتمه می یابد:
-<div class="highlight"><pre><code class="php"><span class="x">&lt;/p&gt;</span>
+<p> داده فرم به یک فایل PHP  به نام welcome.php فرستاده می شود.</p>
 
-<span class="x">&lt;p&gt;&amp;lt;?php</span>
-<span class="x">کدهای PHP در این قسمت نوشته می شوند//</span>
-<span class="x">?&gt;&lt;/p&gt;</span>
+<p> کد فایل welcome.php مشابه زیر است:</p>
 
-<span class="x">&lt;p&gt;</span>
-</code></pre></div></p>
+<p><div class="highlight"><pre><code class="php"><span class="x">&lt;html&gt;</span>
+<span class="x">&lt;body&gt;&lt;/p&gt;</span>
 
-<p>همانطور که پیش از این گفته شد، پسوند پیش فرض فایل های <strong>php</strong> ، PHP<strong>.</strong> می باشد. به طور کلی هر فایل PHP شامل تگ های HTML و کدهای اسکریپتی PHP می باشد. در زیر مثال ساده ای از یک فایل PHP آورده شده است.</p>
+<span class="x">&lt;p&gt;Welcome &amp;lt;?php echo $&lt;em&gt;POST[&amp;ldquo;fname&amp;rdquo;]; ?&gt;!&lt;br&gt;</span>
+<span class="x">You are &amp;lt;?php echo $&lt;/em&gt;POST[&amp;ldquo;age&amp;rdquo;]; ?&gt; years old.&lt;/p&gt;</span>
 
-<p><strong>مثال: </strong>کد PHPای بنویسید که کلمه <em>!Hello World</em> را در سرور چاپ کند:</p>
-
-<p><div class="highlight"><pre><code class="php"><span class="x">&lt;/p&gt;</span>
-
-<span class="x">&lt;p&gt;&amp;lt;?php&lt;/p&gt;</span>
-
-<span class="x">&lt;pre&gt;&lt;code&gt;echo &quot;Hello World!&quot;;</span>
-<span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
-
-<span class="x">&lt;p&gt;?&gt;&lt;/p&gt;</span>
+<span class="x">&lt;p&gt;&lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;&lt;/p&gt;</span>
 
 <span class="x">&lt;p&gt;</span>
 </code></pre></div></p>
@@ -68,167 +147,434 @@
 <p><strong> نتیجه اجرا: </strong>
 <div class="highlight"><pre><code class="sh">&lt;/p&gt;
 
-&lt;p&gt;Hello World!&lt;/p&gt;
+&lt;p&gt;Welcome John!
+You are 28 years old.&lt;/p&gt;
 
 &lt;p&gt;
 </code></pre></div></p>
 
-<p>هر خط کد در PHP می بایست با یک علامت <strong> ; </strong> خاتمه یابد. علامت <strong> ; </strong> یک جداکننده می باشد
-و به منظور جدا سازی مجموعه ای از دستورالعمل ها از یکدیگر به کار می رود.</p>
+<p>متغیرهای POST _ $  و GET _ $  در قسمت بعدی توضیح داده خواهند شد.</p>
 
-<p>در PHP دو روش برای چاپ متن در مرورگر وجود دارد: <strong> echo </strong> و <strong> print </strong></p>
+<h2>اعتبار سنجی فرم</h2>
 
-<h3>نوشتن توضیحات در PHP</h3>
+<p>لازم به ذکر است که کاربر باید داده های معتبر در فرم وارد کند.</p>
 
-<p>توضیحات دستوراتی هستند که کامپایلر (برنامه یا مجموعه‌ای از برنامه‌های کامپیوتری
-است که متنی از زبان برنامه نویسی سطح بالا (زبان مبدا) را به زبانی سطح پایین
-(زبان مقصد)، مثل اسمبلی یا زبان سطح ماشین، تبدیل می‌کند. خروجی این برنامه ممکن است
-برای پردازش شدن توسط برنامه دیگری مثل پیونددهنده مناسب باشد یا فایل متنی باشد
- که انسان نیز بتواند آنرا بخواند.)با رسیدن به آنها، دستورات را نادیده گرفته و
-آنها را اجرا نمی کند. برای نوشتن توضیحات تک خطی درPHP می توان از علامت <strong> // </strong>
-در ابتدای توضیح استفاده نمود و برای نوشتن توضیحات چند خطی می توان در اولین خط از دستورات
-از علامت <strong> */ </strong> و در پایان از علامت <strong> /* </strong> استفاده نمود.</p>
+<p>اعتبارسنجی ورودی کاربر باید در مرورگر و در جای مناسب انجام گیرد (بوسیله اسکریپت های مشتری ).</p>
 
-<p><strong> مثال: </strong>
-<div class="highlight"><pre><code class="php"><span class="x">&lt;/p&gt;</span>
+<p>اعتبارسنجی مرورگر سریع تر است و میزان لود سرور را کاهش می دهد.</p>
+
+<p>هنگامی که کاربر داده وارد می کند شما باید اعتبارسنجی سرور  انجام داده و
+مطمئن شوید که اطلاعات به پایگاه داده وارد شده اند.</p>
+
+<p> یک روش مناسب برای اعتبارسنجی یک فرم بر روی سرور این است که:</p>
+
+<p>فرم را به خود سرور بفرستید نه به یک صفحه دیگر.</p>
+
+<p>سپس کاربر پیغام های خطا را در همان صفحه دریافت می کند و بنابراین یافتن خطا بسیار سریعتر انجام می گیرد.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Form <a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[حوزه متغيرهاي PHP]]></title>
+    <link href="http://tutors.github.io/blog/2013/08/21/php-variables-scope/"/>
+    <updated>2013-08-21T14:59:00+04:30</updated>
+    <id>http://tutors.github.io/blog/2013/08/21/php-variables-scope</id>
+    <content type="html"><![CDATA[<p>حوزه يک متغير بخشي از يک اسکريپت است که متغير مي تواند درآن استفاده شود و يا به آن ارجاع داده شود.</p>
+
+<p> در PHP چهار حوزه مختلف براي تعريف متغيرها وجود دارد:</p>
+
+<ul>
+<li>حوزه محلي<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></li>
+<li>حوزه عمومي<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></li>
+<li><sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>حوزه ايستا</li>
+<li>حوزه پارامتر<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup></li>
+</ul>
+
+
+<h2>حوزه محلي</h2>
+
+<p>به متغيري که در يک تابع PHP تعريف مي شود، متغير محلي گفته مي شود.</p>
+
+<p>متغير محلي فقط در داخل يک تابع قابل دسترسي مي باشد:</p>
+
+<p><div class="highlight"><pre><code class="php"><span class="x">&lt;/p&gt;</span>
 
 <span class="x">&lt;p&gt;&amp;lt;?php</span>
-<span class="x">// توضیحات تک خطی در PHP&lt;/p&gt;</span>
+<span class="x">$x=5; // حوزه عمومي&lt;/p&gt;</span>
 
-<span class="x">&lt;p&gt;/&lt;em&gt;</span>
-<span class="x">توضیحات بلوکی یا چند خطی در php</span>
-<span class="x">&lt;/em&gt;/</span>
-<span class="x">echo &amp;ldquo;Hello World!&amp;rdquo;;</span>
+<span class="x">&lt;p&gt;function myTest()</span>
+<span class="x">{&lt;/p&gt;</span>
+
+<span class="x">&lt;pre&gt;&lt;code&gt;    echo $x; // حوزه محلي</span>
+<span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+
+<span class="x">&lt;p&gt;}&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;myTest();</span>
 <span class="x">?&gt;&lt;/p&gt;</span>
 
 <span class="x">&lt;p&gt;</span>
 </code></pre></div></p>
 
-<p><strong>نتیجه اجرا:</strong>
-<div class="highlight"><pre><code class="sh">&lt;/p&gt;
+<p><strong>نتيجه اجرا:</strong>
+اين اسکريپت هيچ خروجي اي را نشان نمي دهد. زيرا دستور echo به يک متغير محلي x$ رجوع مي کند که در حوزه محلي مقدار دهي نشده است.</p>
 
-&lt;p&gt;Hello World!&lt;/p&gt;
+<p><strong>نکته:</strong>
+از آنجائيکه متغيرهاي محلي تنها در تابعي که در آن تعريف مي شوند، قابل استفاده هستند، شما مي توانيد در تابع هاي مختلف متغيرهايي با نام هاي يکسان داشته باشيد.</p>
+
+<p>در واقع متغيرهاي محلي با خاتمه تابع، حذف مي شوند.</p>
+
+<h2>حوزه عمومي</h2>
+
+<p>متغيري که در خارج از توابع تعريف مي شود، عمومي است و داراي حوزه عمومي است.</p>
+
+<p>متغيرهاي عمومي مي توانند در هر جاي اسکريپت (به جز در داخل بدنه تابع) تعريف شوند.</p>
+
+<p>براي دستيابي به يک متغير عمومي در داخل تابع مي توانيد از کلمه کليدي global قبل از نام متغير استفاده کنيد.</p>
+
+<p><strong>مثال:</strong></p>
+
+<p><div class="highlight"><pre><code class="php"><span class="x">&amp;lt;?php</span>
+<span class="x">$x=5; // global scope</span>
+<span class="x">$y=10; // global scope&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;function myTest()</span>
+<span class="x">{&lt;/p&gt;</span>
+
+<span class="x">&lt;pre&gt;&lt;code&gt;      global $x,$y;</span>
+<span class="x">       $y=$x+$y;</span>
+<span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+
+<span class="x">&lt;p&gt;}&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;myTest(); // run function</span>
+<span class="x">echo $y; // output the new value for variable $y</span>
+<span class="x">?&gt;&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<p><strong>نتيجه اجرا:</strong></p>
+
+<p><div class="highlight"><pre><code class="sh">&lt;/p&gt;
+
+&lt;p&gt;15&lt;/p&gt;
+
+&lt;p&gt;
+</code></pre></div>
+PHP تمامي متغيرهاي عمومي را در يک آرايه به نام [GLOBALS[index$ ذخيره مي کند. Index نام متغير را در خود نگهداري مي کند.</p>
+
+<p>اين آرايه مي تواند از طريق توابع مورد دسترسي واقع شود و توسط آن مي توان متغيرهاي عمومي را مستقيماً بروزرساني کرد.</p>
+
+<p>براي نمونه، مي توان مثال بالا را به صورت زير بازنويسي نمود:</p>
+
+<p><div class="highlight"><pre><code class="php"><span class="x">&amp;lt;?php</span>
+<span class="x">$x=5;</span>
+<span class="x">$y=10;&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;function myTest()</span>
+<span class="x">{</span>
+<span class="x">$GLOBALS[&amp;lsquo;y&amp;rsquo;]=$GLOBALS[&amp;lsquo;x&amp;rsquo;]+$GLOBALS[&amp;lsquo;y&amp;rsquo;];</span>
+<span class="x">}&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;myTest();</span>
+<span class="x">echo $y;</span>
+<span class="x">?&gt;&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<p><strong>نتيجه اجرا:</strong></p>
+
+<p><div class="highlight"><pre><code class="sh">&lt;/p&gt;
+
+&lt;p&gt;15&lt;/p&gt;
 
 &lt;p&gt;
 </code></pre></div></p>
+
+<h2>حوزه ايستا</h2>
+
+<p>به طور کلي هنگامي که يک تابع کامل مي شود(به انتهاي تابع مي رسيم)، همه متغيرهاي مربوط به آن حذف مي شوند.</p>
+
+<p>اما در برخي موارد شما مي خواهيد بعضي از متغيرهاي محلي حذف نشوند، تا بتوانيد در جاهاي ديگر برنامه از مقدار آن ها استفاده کنيد.</p>
+
+<p>براي اين کار مي بايست هنگامي که براي اولين بار متغير را ايجاد مي کنيد، در جلوي نام آن از کلمه کليدي static استفاده کنيد.</p>
+
+<p> در اينصورت هر بار که تابع فراخواني مي شود، آن متغير اطلاعاتي که در سري قبلي(در فراخواني قبلي تابع) داشته است در خود نگه مي دارد.</p>
+
+<p>لازم به ذکر است که اين متغير هنوز براي تابع محلي مي باشد.</p>
+
+<p><strong>مثال:</strong></p>
+
+<p><div class="highlight"><pre><code class="php"><span class="x">&amp;lt;?php&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;function myTest()</span>
+<span class="x">{&lt;/p&gt;</span>
+
+<span class="x">&lt;pre&gt;&lt;code&gt; static $x=0;</span>
+<span class="x"> echo $x;</span>
+<span class="x"> $x++;</span>
+<span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+
+<span class="x">&lt;p&gt;}</span>
+<span class="x">myTest();</span>
+<span class="x">myTest();</span>
+<span class="x">myTest();</span>
+<span class="x">?&gt;&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<p><strong>نتيجه اجرا:</strong></p>
+
+<p><div class="highlight"><pre><code class="sh">&lt;/p&gt;
+
+&lt;p&gt;012&lt;/p&gt;
+
+&lt;p&gt;
+</code></pre></div></p>
+
+<h2>حوزه پارامتر</h2>
+
+<p>پارمتر، يک متغير محلي است که مقدارش توسط فراخواني کد<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>  به تابع فرستاده مي شود.</p>
+
+<p> پارامترها، در ليست پارامتر<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup> ، به عنوان بخشي از تعريف تابع، تعريف مي شوند.</p>
+
+<p>به پارامترها، آرگومان نيز گفته مي شود.(اطلاعات بيشتر در بخش توابع PHP آورده شده است)</p>
+
+<p><div class="highlight"><pre><code class="php"><span class="x">&amp;lt;?php&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;function myTest($x)</span>
+<span class="x">{&lt;/p&gt;</span>
+
+<span class="x">&lt;pre&gt;&lt;code&gt;  echo $x;</span>
+<span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+
+<span class="x">&lt;p&gt;}&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;myTest(5);&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;?&gt;&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<p><strong>نتيجه اجرا:</strong></p>
+
+<p><div class="highlight"><pre><code class="sh">&lt;/p&gt;
+
+&lt;p&gt;5&lt;/p&gt;
+
+&lt;p&gt;
+</code></pre></div></p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Local<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+<li id="fn:2">
+<p>Global<a href="#fnref:2" rev="footnote">&#8617;</a></p></li>
+<li id="fn:3">
+<p>Static<a href="#fnref:3" rev="footnote">&#8617;</a></p></li>
+<li id="fn:4">
+<p>Parameter<a href="#fnref:4" rev="footnote">&#8617;</a></p></li>
+<li id="fn:5">
+<p>Calling code<a href="#fnref:5" rev="footnote">&#8617;</a></p></li>
+<li id="fn:6">
+<p>Parameter list<a href="#fnref:6" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[مفاهیم پایه ای PHP]]></title>
-    <link href="http://tutors.github.io/blog/2013/08/10/php-fundamental/"/>
-    <updated>2013-08-10T13:56:00+04:30</updated>
-    <id>http://tutors.github.io/blog/2013/08/10/php-fundamental</id>
-    <content type="html"><![CDATA[<h2>مقدمه ای بر زبان PHP</h2>
+    <title type="html"><![CDATA[توابع PHP]]></title>
+    <link href="http://tutors.github.io/blog/2013/08/21/php-functions/"/>
+    <updated>2013-08-21T14:36:00+04:30</updated>
+    <id>http://tutors.github.io/blog/2013/08/21/php-functions</id>
+    <content type="html"><![CDATA[<p>قدرت واقعی php برگرفته از توابع<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>  آن است.</p>
 
-<h3>PHP چیست؟</h3>
+<p> در Php بیش از 7000 تابع از پیش ساخته شده  وجود دارد.</p>
 
-<p>زبان PHP یک زبان اسکریپتی تحت سرور و همچنین ابزار قدرتمندی برای ساخت صفحات وب پویا می باشد.
-این زبان، زبانی رایگان و بازمتن مورد استفاده همگانی و بسیار کاربردی می باشد و رقیبی قوی برای
-سایر زبان های مورد استفاده در زمینه تولید صفحات وب می باشد.</p>
+<p> در این فصل نحوه ایجاد تابع در php توضیح داده خواهد شد.</p>
 
-<h3>یک فایل PHP شامل چه مواردی است؟</h3>
+<p>برای جلوگیری از اینکه هنگامی که یک صفحه لود می شود، اسکریپت اجرا شود، می توانید اسکریپت را در یک تابع قرار دهید.</p>
 
-<p>فایل های PHP می توانند شامل متن، کدهای HTML، JavaScript و کد PHP باشند.کدهای PHP قابلیت اجرا بر روی هر سروری را دارند
-و نتیجه آنها در مرورگر  به صورت HTML برگردانده می شود. تمامی فایل های زبان PHP دارای پسوند <strong> php. </strong> می باشد.</p>
+<p> یک تابع زمانی اجرا می شود که آنرا فراخوانی کنید و شما می توانید تابع را در هرجایی از کد فراخوانی کنید.</p>
 
-<h3>قابلیت های PHP:</h3>
+<h2>ایجاد تابع در PHP</h2>
+
+<p>یک تابع زمانی اجرا می شود که آن را فراخوانی کنید.</p>
+
+<p><strong>گرامر:</strong>
+<div class="highlight"><pre><code class="php"><span class="x">&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;&amp;lt;?php</span>
+<span class="x">function functionName()</span>
+<span class="x">{</span>
+<span class="x">؛کدی که باید اجرا شود</span>
+<span class="x">{&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;?&gt;&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<h3>اصولی راجع به توابع PHP:</h3>
 
 <ul>
-<li>ایجاد صفحات پویای وب</li>
-<li>ایجاد، باز کردن، نوشتن، خواندن و بستن فایل های موجود بر روی سرور</li>
-<li>جمع آوری داده های فرم</li>
-<li>ارسال و دریافت کوکی ها</li>
-<li>اضافه کردن، حذف کردن و تغییر دادن اطلاعات در پایگاه داده</li>
-<li>محدود کردن دسترسی کاربران برای دسترسی به صفحات وب</li>
-<li>رمزگشایی  داده ها و اطلاعات</li>
+<li><p>به تابع نامی بدهید که نشاندهنده عملکرد تابع باشد.</p></li>
+<li><p>نام تابع می تواند با یک حرف یا _ شروع شود (نه عدد).</p></li>
 </ul>
 
 
-<p>لازم به ذکر است که شما با استفاده از PHP می توانید علاوه بر خروجی های HTML
-خروجی هایی مانند عکس، فایل پی دی اف و حتی فیلم های ساخته شده با
-نرم افزار فلش، داشته باشید. زبان PHP همچنین می تواند خروجی های متنی مانند XHTML و XML داشته باشد.</p>
+<p><strong>مثال:</strong></p>
 
-<h3>چرا از زبان PHP استفاده می کنیم؟</h3>
+<p> تابع ساده ای که هنگامی که فراخوانی می شود، اسم را می نویسد.</p>
 
-<ul>
-<li>زبان PHP بر روی سیستم عامل های مختلفی (از جمله Windows, Linux, Unix, Mac OS X و غیره) اجرا می شود.</li>
-<li>زبان PHP تقریبا با تمامی سرورهایی که امروزه استفاده می شوند، سازگار می باشد.</li>
-<li>زبان PHP از محدوده گسترده ای از پایگاه  داده ها پشتیسانی می کند.</li>
-<li>یادگیری زبان PHP آسان است و به صورت کارا بر روی سرور اجرا می شود.</li>
-</ul>
+<p><div class="highlight"><pre><code class="php"><span class="x">&lt;/p&gt;</span>
 
+<span class="x">&lt;p&gt;&amp;lt;?php</span>
+<span class="x">function writeName()</span>
+<span class="x">{</span>
+<span class="x">echo &amp;ldquo;Kai Jim Refsnes&amp;rdquo;;</span>
+<span class="x">}&lt;/p&gt;</span>
 
-<h2>نحوه نصب PHP:</h2>
+<span class="x">&lt;p&gt;echo &amp;ldquo;My name is &amp;rdquo;;</span>
+<span class="x">writeName();</span>
+<span class="x">?&gt;&lt;/p&gt;</span>
 
-<h3>آموزش نصب</h3>
+<span class="x">&lt;p&gt;</span>
+</code></pre></div></p>
 
-<p>برای شروع استفاده از PHP می توانید یکی از دو روش زیر را استفاده کنید:</p>
+<p><strong> نتیجه اجرا: </strong></p>
 
-<ul>
-<li>استفاده از یک میزبان وب ای که از PHP وپایگاه داده پشتیبانی می کند.</li>
-<li>نصب یک وب سرور بر روی کامپیوتر شخصی خودتان و سپس نصب PHP و MySQL بر روی آن</li>
-</ul>
+<p><div class="highlight"><pre><code class="sh">&lt;/p&gt;
 
+&lt;p&gt;My name is Kai Jim Refsnes&lt;/p&gt;
 
-<h4>استفاده از یک میزبان وبی که از PHP و MySQL پشتیبانی می کند</h4>
+&lt;p&gt;
+</code></pre></div></p>
 
-<p>در این روش، درصورتیکه سرور شما از PHP پشتیبانی می کند، لازم نیست هیچ کاری انجام
-دهید. کافیست فایل های PHP خود را که دارای پسوند <strong> php.</strong> هستند را در پوشه وب
-بسازید، سرور به طور اتوماتیک این فایل ها را برای شما اجرا می کند.
-همچنین در این روش نیازی نیست که هیچ ابزار اضافی را بر روی سیستم خود نصب کنید.</p>
+<h2>اضافه کردن پارامتر به تابع</h2>
 
-<h4>راه اندازی سرور محلی</h4>
+<p>برای اینکه یک تابع بتواند کارهای بیشتری انجام دهد، می توان به آن پارامتر اضافه نمود.</p>
 
-<p>همانطور که گفته شد PHP یک زبان برنامه نویسی تحت وب است و برای راه اندازی آن
-از یک وب سرور استفاده می کنیم. وب سروری که برای PHP استفاده می کنیم، آپاچی است.
-کدهای PHP را می توان در هر editor ای نوشت (مانند notepad و ++notepadd).</p>
+<p> یک پارمتر مانند یک متغیر  است. پارامترها بعد از نام تابع و در داخل پرانتز نوشته می شوند.</p>
 
-<p>نصب وب سرور را باید با دقت لازم انجام شود و حتی اگر یکی از مراحل به اشتباه انجام شود،
-ممکن است مجبور شوید تمام مراحل را از ابتدا انجام دهید. البته برنامه های سرویس دهنده
-ای (مانند WAMP، EasyPHP، PHPtraid، XAMPP و SQLware) وجود دارند که تمام امکانات لازم
-برای اجرای برنامه ها را بدون دردسر در اختیار کاربران قرار می دهند. از بین این
-برنامه ها، سرویس دهنده WAMP و XAMPP از محبوبیت بسیار زیادی بین برنامه نویسان PHP برخوردارند.
- هنگامی که یکی از سرویس دهند های فوق را نصب می کنید دیگر لازم نیست Apache و MySQL را نصب کنید.
-این سرویس دهنده ها خودشان تنظیمات میان PHP و Apache را انجام می دهند.</p>
+<p><strong>مثال1:</strong></p>
 
-<h4>راه اندازی WAMP SERVER</h4>
+<p> مثال زیر نام های متفاوت و با نام خانوادگی یکسان را چاپ می کند.</p>
 
-<p>پس از دانلود این برنامه آن را روی سیستم خود نصب نمایید. در یکی از مراحل نصب
-این برنامه، کادری ظاهر می شود که در آن می بایست مسیر ریشه برای قرار دادن
-فایل های مربوط به سایت تعیین شود، به طور پیش فرض این مسیر در شاخه نصب WAMP
-و در پوشه www انتخاب شده است.</p>
+<p><div class="highlight"><pre><code class="php"><span class="x">&lt;/p&gt;</span>
 
-<p>نکته: این مسیر را به خاطر بسپارید، زیرا از این پس برای اینکه بتوانید برنامه های
-خود را اجرا کنید، حتماً باید آنها را در این پوشه ذخیره کنید.
-پس از نصب WAMP، روی ناحیه تذکر از نوار وظیفه یک آیکن به شکل نیم دایره سفید ظاهر می شود.</p>
+<span class="x">&lt;p&gt;&amp;lt;?php</span>
+<span class="x">function writeName($fname)</span>
+<span class="x">{</span>
+<span class="x">echo $fname . &amp;ldquo; Refsnes.&lt;br&gt;&amp;rdquo;;</span>
+<span class="x">}&lt;/p&gt;</span>
 
-<p><img src="/images/php/fundamental/wamp_0.png" title="&ldquo;شکل ۱: سرویس دهنده WAMP&rdquo;" ></p>
+<span class="x">&lt;p&gt;echo &amp;ldquo;My name is &amp;rdquo;;</span>
+<span class="x">writeName(&amp;ldquo;Kai Jim&amp;rdquo;);</span>
+<span class="x">echo &amp;ldquo;My sister&amp;rsquo;s name is &amp;rdquo;;</span>
+<span class="x">writeName(&amp;ldquo;Hege&amp;rdquo;);</span>
+<span class="x">echo &amp;ldquo;My brother&amp;rsquo;s name is &amp;rdquo;;</span>
+<span class="x">writeName(&amp;ldquo;Stale&amp;rdquo;);</span>
+<span class="x">?&gt;&lt;/p&gt;</span>
 
-<p>شکل 1: سرویس دهنده WAMP</p>
+<span class="x">&lt;p&gt;</span>
+</code></pre></div></p>
 
-<p>ظاهر شدن این آیکن با رنگ های قرمز با زرد به این معناست که سرویس ها به طور کامل
-در حال اجرا نیستند و یا اینکه به درستی عمل نمی کنند. در این صورت برای اجرای
-مجدد سرویس ها روی آیکن نیم دایره کلیک کنید. به شکل 1 توجه کنید،علامت مثلث کنار
-سرویس های Apache و MySQL به معنای این است که سرویس در حال اجراست. در صورتیکه
-این علامت به مربع تبدیل شود به معنای توقف سرویس هاست. در این صورت برای اجرای
-سرویس روی گزینه  Start/Resume Serviceکلیک کنید.</p>
+<p><strong> نتیجه اجرا: </strong></p>
 
-<p>پس از نصب برنامه WAMP می توانید عملیات برنامه نویسی در PHP را آغاز کنید و
-پس از ذخیره هر برنامه، اجرای آن را توسط مرورگر مشاهده کنید.</p>
+<p><div class="highlight"><pre><code class="sh">&lt;/p&gt;
 
-<h3>نصب یک وب سرور بر روی کامپیوتر شخصی</h3>
+&lt;p&gt;My name is Kai Jim Refsnes.
+My sister&amp;rsquo;s name is Hege Refsnes.
+My brother&amp;rsquo;s name is Stale Refsnes.&lt;/p&gt;
 
-<p>درصورتیکه کامپیوتر یا سرور شما از PHP پشتیبانی نمی کند، باید موارد زیر را بر روی آن نصب کنید:</p>
+&lt;p&gt;
+</code></pre></div></p>
 
-<ul>
-<li>وب سرور</li>
-<li>زبان PHP</li>
-<li>یک پایگاه داده مانند MySQL</li>
-</ul>
+<p><strong>مثال2:</strong></p>
 
+<p> تابعی با دو پارامتر</p>
 
-<p>در صورت عدم استفاده از WAMP یا سرویس دهنده های مشابه، باید PHP، Apache و MySQL را یکی پس از دیگری نصب وپیکر بندی نمایید.</p>
+<p><div class="highlight"><pre><code class="php"><span class="x">&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;&amp;lt;?php</span>
+<span class="x">function writeName($fname,$punctuation)</span>
+<span class="x">{</span>
+<span class="x">echo $fname . &amp;ldquo; Refsnes&amp;rdquo; . $punctuation . &amp;ldquo;&lt;br&gt;&amp;rdquo;;</span>
+<span class="x">}&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;echo &amp;ldquo;My name is &amp;rdquo;;</span>
+<span class="x">writeName(&amp;ldquo;Kai Jim&amp;rdquo;,&amp;ldquo;.&amp;rdquo;);</span>
+<span class="x">echo &amp;ldquo;My sister&amp;rsquo;s name is &amp;rdquo;;</span>
+<span class="x">writeName(&amp;ldquo;Hege&amp;rdquo;,&amp;ldquo;!&amp;rdquo;);</span>
+<span class="x">echo &amp;ldquo;My brother&amp;rsquo;s name is &amp;rdquo;;</span>
+<span class="x">writeName(&amp;ldquo;Ståle&amp;rdquo;,&amp;ldquo;?&amp;rdquo;);</span>
+<span class="x">?&gt;&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<p><strong> نتیجه اجرا: </strong></p>
+
+<p><div class="highlight"><pre><code class="sh">&lt;/p&gt;
+
+&lt;p&gt;My name is Kai Jim Refsnes.
+My sister&amp;rsquo;s name is Hege Refsnes!
+My brother&amp;rsquo;s name is Ståle Refsnes?&lt;/p&gt;
+
+&lt;p&gt;
+</code></pre></div></p>
+
+<h2>مقادیر بازگشتی در تابع</h2>
+
+<p>برای اینکه یک تابع بتواند مقدار بازگشتی داشته باشد، می توان از عبارت return استفاده نمود.</p>
+
+<p><strong>مثال:</strong></p>
+
+<p><div class="highlight"><pre><code class="php"><span class="x">&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;&amp;lt;?php</span>
+<span class="x">function add($x,$y)</span>
+<span class="x">{</span>
+<span class="x">$total = $x+$y;</span>
+<span class="x">return $total;</span>
+<span class="x">}&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;echo &amp;ldquo;1 + 16 = &amp;rdquo; . add(1,16);</span>
+<span class="x">?&gt;&lt;/p&gt;</span>
+
+<span class="x">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<p><strong> نتیجه اجرا: </strong></p>
+
+<p><div class="highlight"><pre><code class="sh">1 + <span class="nv">16</span> <span class="o">=</span> 17&lt;/p&gt;
+
+&lt;p&gt;
+</code></pre></div></p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>functions<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
 ]]></content>
   </entry>
   

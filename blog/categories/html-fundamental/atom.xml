@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: html-fundamental | آموزش روش های توسعه نرم افزار]]></title>
+  <link href="http://tutors.github.io/blog/categories/html-fundamental/atom.xml" rel="self"/>
+  <link href="http://tutors.github.io/"/>
+  <updated>2013-10-17T16:19:28+03:30</updated>
+  <id>http://tutors.github.io/</id>
+  <author>
+    <name><![CDATA[حسین زلفی]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ انواع تگ های html]]></title>
+    <link href="http://tutors.github.io/blog/2013/10/17/html-tags/"/>
+    <updated>2013-10-17T15:28:00+03:30</updated>
+    <id>http://tutors.github.io/blog/2013/10/17/html-tags</id>
+    <content type="html"><![CDATA[<h2>تگ head چیست؟</h2>
+
+<p>در &lt;head&gt; توضیحاتی راجع به html ایجاد شده وجود دارد. اطلاعاتی که واقعا در مرورگر
+ نشان داده نمی شوند. مثلاً اینکه عنوان یک صفحه چیست.</p>
+
+<p><div class="highlight"><pre><code class="html"><span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;&lt;title&gt;</span>This is a test<span class="nt">&lt;/title&gt;&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<p>آنچه در &lt;head&gt; تعریف می شود متا محتواست مثلاً عنوان. برای مثال یک موتور جستجوگر مانند
+ گوگل می خواهد بداند که موضوع سایت ما چیست. در این صورت به سراغ head
+می رود. در واقع ما باید یک سری اطلاعات راجع به سایت را در قسمت &lt;head&gt; قرار دهیم.</p>
+
+<h2>تگ body چیست؟</h2>
+
+<p>آنچه در &lt;body&gt; قرار دارد در واقع محتوای اصلی سایت ما را مشخص می کند.
+هرچه در این قسمت نوشته شود عیناً و بدون هیچ style خاصی در صفحه وب نمایش داده می شود.</p>
+
+<h2>ساختار مقاله ای گونه HTML</h2>
+
+<p>در این راستا سه تگ &lt;h1&gt;، &lt;h2&gt; و &lt;p&gt; وجود دارند.
+ تگ &lt;h1&gt; نشان دهنده عنوان شماره 1، تگ &lt;h2&gt; نشان دهنده عنوان شماره 2
+و تگ &lt;p&gt; نشان دهنده پاراگراف می باشد. برای ایجاد یک سایت مقاله گونه از این
+تگ ها استفاده
+می شود.</p>
+
+<h2>تگ ها و خاصیت آنها</h2>
+
+<p>در HTML می توان به برخی از تگ ها خاصیت داد.</p>
+
+<p><strong>مثال:</strong></p>
+
+<p><div class="highlight"><pre><code class="html"><span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;h1</span> <span class="na">style =</span><span class="err"> </span><span class="s">&quot;color:red;&quot;</span><span class="nt">&gt;</span>HTML<span class="nt">&lt;/h1&gt;</span>
+
+
+<span class="nt">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<h3>تگ های معنایی</h3>
+
+<p>تگ معنایی یعنی تگی که مفهوم متنی که داخل آن تگ است را نشان می دهد.
+مثلاً تگ h1 نشان می دهد که این تگ header است. تگ p نشان می دهد که این تگ پاراگراف است.</p>
+
+<h3>تگ های فرمت</h3>
+
+<p>این تگ ها معنای خاصی را نشان نمی دهند.</p>
+
+<p><strong>مثال:</strong></p>
+
+<p>&lt;em&gt;: نشان دهنده اینکه متنی مهم است</p>
+
+<p>&lt;small&gt;: متن را کوچکتر از سایز اصلی متن نشان می دهد</p>
+
+<p>&lt;b&gt;: متن را bold می کند.</p>
+
+<p>&lt;i&gt;: متن را italic می کند.</p>
+
+<p>&lt;sub&gt;: متن را زیر نویس می کند. مثلاً<sub>2</sub>xرا به صورت زیر نشان می دهیم.</p>
+
+<p><div class="highlight"><pre><code class="html">x<span class="nt">&lt;sub&gt;</span>2<span class="nt">&lt;/sub&gt;</span>
+</code></pre></div></p>
+
+<p>&lt;sup&gt;:   متن را به صورت توان دار نشان می دهد.مثلاً<sup>2</sup>xرا به صورت زیر نشان می دهیم</p>
+
+<p><div class="highlight"><pre><code class="html">x<span class="nt">&lt;sup&gt;</span>2<span class="nt">&lt;/sup&gt;</span>
+</code></pre></div></p>
+]]></content>
+  </entry>
+  
+</feed>
