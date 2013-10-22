@@ -4,7 +4,7 @@
   <title><![CDATA[Category: html-fundamental | آموزش روش های توسعه نرم افزار]]></title>
   <link href="http://tutors.github.io/blog/categories/html-fundamental/atom.xml" rel="self"/>
   <link href="http://tutors.github.io/"/>
-  <updated>2013-10-17T16:19:28+03:30</updated>
+  <updated>2013-10-22T20:32:23+03:30</updated>
   <id>http://tutors.github.io/</id>
   <author>
     <name><![CDATA[حسین زلفی]]></name>
@@ -89,6 +89,115 @@
 
 <p><div class="highlight"><pre><code class="html">x<span class="nt">&lt;sup&gt;</span>2<span class="nt">&lt;/sup&gt;</span>
 </code></pre></div></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ استفاده از editor برای ویرایش کد ]]></title>
+    <link href="http://tutors.github.io/blog/2013/10/17/html-editor/"/>
+    <updated>2013-10-17T14:53:00+03:30</updated>
+    <id>http://tutors.github.io/blog/2013/10/17/html-editor</id>
+    <content type="html"><![CDATA[<h2>استفاده از editor</h2>
+
+<p>Editor ای که در این آموزش از آن استفاده می شود JetBrainsPhpStorm 6.0.3 می باشد.
+ با باز شدن JetBrainsPhpStorm6.0.3 ابتدا یک پروژه جدید ایجاد نمایید و مسیر آن را C:\wamp\www
+قرار دهید. با باز شدن صفحه بر روی نام پروژه کلیک راست کرده و یک فایل html باز کنید.</p>
+
+<p><img src="/images/html/fundamental/newProject.jpg" title="&ldquo;شکل 1: ایجاد پروژه جدید&rdquo;" ></p>
+
+<p>شکل 1: ایجاد پروژه جدید</p>
+
+<p><img src="/images/html/fundamental/NewHtml.jpg" title="&ldquo;شکل 2: ایجاد فایل جدید&rdquo;" ></p>
+
+<p>شکل 2: ایجاد فایل جدید</p>
+
+<p>در این قسمت شما ساختار کلی فایل html را ملاحظه می نمایید.</p>
+
+<p><img src="/images/html/fundamental/HTML.jpg" title="&ldquo;شکل 3: ساختار کلی فایل html&rdquo;" ></p>
+
+<p>شکل 3: ساختار کلی فایل html</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ html چیست؟ ]]></title>
+    <link href="http://tutors.github.io/blog/2013/10/17/html-tag/"/>
+    <updated>2013-10-17T14:15:00+03:30</updated>
+    <id>http://tutors.github.io/blog/2013/10/17/html-tag</id>
+    <content type="html"><![CDATA[<h2>html</h2>
+
+<p>استانداردی که در صفحه وب وجود دارد html می باشد. در ابتدا هدف از ایجاد html این بود
+که بتوان مقاله ها را به شکل خاصی در آورد. مثلاً مشخص کرد کدام قسمت عنوان مقاله، کدام قسمت footer
+مقاله و کدام قسمت بدنه مقاله را مشخص می کند. در روند تکامل html ساختار اولیه تغییرات بسیاری پیدا کرد و
+امکانات زیادی به آن اضافه شد و بر اساس آن می توان سایتهای با طرحهای بسیار پیچیده ایجاد نمود. برای مثال
+ می توان به روش زیر sourcehtml تمامی سایتها را ملاحظه نمود:</p>
+
+<ul>
+<li>کلیک راست بر روی صفحه مرورگر</li>
+<li>انتخاب گزینه view page source</li>
+</ul>
+
+
+<h2>تگ ها و خاصیت ها</h2>
+
+<p>HTML یک زبان نشانه گذاری ابرمتن است . این زبان از یک سری تگ درست شده است که این تگ ها با استفاده از
+علامات زیر باز و بسته می شوند.</p>
+
+<p>&lt;>علامت باز شدن تگ</p>
+
+<p></> علامت بسته شدن تگ</p>
+
+<p><strong>مثال:</strong>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;&lt;html&gt;&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;&lt;/html&gt;&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>
+</code></pre></div></p>
+
+<p>مثلاً تگ P نشان دهنده پاراگراف می باشد.</p>
+
+<p><strong>مثال:</strong>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;html&gt;&lt;/p&gt;</span>
+
+<span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>Evrery thing about html<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+
+<span class="nt">&lt;p&gt;&lt;/html&gt;</span>
+</code></pre></div></p>
+
+<p>به طور کلی HTML یک ساختار درختی دارد. برای مثال در بالا ابتدا html شروع شده، تگ  p شروع شده
+ و پایان می یابد سپس تگ html خاتمه می یابد.
+به طور کلی شما می توانید یک فایل HTML را با هر editor ای ایجاد کنید و سپس آن را با استفاده
+از مرورگر ببینید. ولی بهتر است از یک سرور محلی استفاده نمایید که در این جا از وب سرور wamp
+ استفاده شده است.</p>
+
+<h2>طریقه استفاده از wamp سرور</h2>
+
+<p>پس از دانلود این برنامه آن را روی سیستم خود نصب نمایید. در یکی از مراحل نصب
+این برنامه، کادری ظاهر می شود که در آن می بایست مسیر ریشه برای قرار دادن
+فایل های مربوط به سایت تعیین شود، به طور پیش فرض این مسیر در شاخه نصب wamp
+و در پوشه www انتخاب شده است.</p>
+
+<p>نکته: این مسیر را به خاطر بسپارید، زیرا از این پس برای اینکه بتوانید برنامه های
+خود را اجرا کنید، حتماً باید آنها را در این پوشه ذخیره کنید.
+پس از نصب wamp، روی ناحیه تذکر از نوار وظیفه یک آیکن به شکل نیم دایره سفید ظاهر می شود.</p>
+
+<p><img src="/images/html/fundamental/wamp_0.png" title="&ldquo;شکل ۱: سرویس دهنده wamp&rdquo;" ></p>
+
+<p>شکل 1: سرویس دهنده wamp</p>
+
+<p>ظاهر شدن این آیکن با رنگ های قرمز با زرد به این معناست که سرویس ها به طور کامل
+در حال اجرا نیستند و یا اینکه به درستی عمل نمی کنند. در این صورت برای اجرای
+مجدد سرویس ها روی آیکن نیم دایره کلیک کنید. به شکل 1 توجه کنید،علامت مثلث کنار
+سرویس های Apache و MySQL به معنای این است که سرویس در حال اجراست. در صورتیکه
+این علامت به مربع تبدیل شود به معنای توقف سرویس هاست. در این صورت برای اجرای
+سرویس روی گزینه  Start/Resume Serviceکلیک کنید.</p>
+
+<p>پس از نصب برنامه wamp می توانید عملیات برنامه نویسی در html را آغاز کنید و
+پس از ذخیره هر برنامه، اجرای آن را توسط مرورگر مشاهده کنید.</p>
 ]]></content>
   </entry>
   
